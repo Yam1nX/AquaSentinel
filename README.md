@@ -1,167 +1,139 @@
 <div align="center">
 
-# 🌊 AquaSentinel
-### Predictive Early-Warning & Decision-Support for Urban Stream Health
+# AquaSentinel
 
-**OneAquaHealth IEEE Global Hackathon 2026**
-**Challenge Track 6 - Resilience Informatics**
+### Predictive Early-Warning and Decision Support for Urban Stream Health
 
-*"AquaSentinel doesn't just classify a water sample as safe or unsafe - it detects when a
-stream is deteriorating, explains why, forecasts what happens next, and tells a
-resource-constrained agency where to look first - honestly reporting what it does and
-doesn't know along the way."*
+[![Track](https://img.shields.io/badge/IEEE%20Global%20Hackathon-2026-0B5FFF?style=for-the-badge)](#)
+[![Challenge](https://img.shields.io/badge/Track%206-Resilience%20Informatics-12B886?style=for-the-badge)](#)
+[![Backend](https://img.shields.io/badge/Backend-Flask-111827?style=for-the-badge&logo=flask&logoColor=white)](#)
+[![Frontend](https://img.shields.io/badge/Frontend-React%20%2B%20Vite-111827?style=for-the-badge&logo=react&logoColor=61DAFB)](#)
+[![License](https://img.shields.io/badge/Data-Open%20Sources-7C3AED?style=for-the-badge)](#-data-sources-and-acknowledgments)
+
+**A practical water-quality intelligence system for detecting change, explaining risk, forecasting the next year, and prioritizing inspection.**
+
+[Overview](#overview) · [Evaluation](#evaluation-at-a-glance) · [Architecture](#architecture) · [Run locally](#run-locally)
 
 </div>
 
 ---
 
-## Table of contents
+## Overview
 
-1. [Challenge track](#1-challenge-track)
-2. [The problem & who it helps](#2-the-problem--who-it-helps)
-3. [What makes this different (innovation)](#3-what-makes-this-different-innovation)
-4. [The working prototype](#4-the-working-prototype)
-5. [Connection to OneAquaHealth / One Health](#5-connection-to-oneaquahealth--one-health)
-6. [Architecture & technology](#6-architecture--technology)
-7. [How it works — a judge's walkthrough](#7-how-it-works--a-judges-walkthrough)
-8. [Data & methodology](#8-data--methodology)
-9. [Results — the honest numbers](#9-results--the-honest-numbers)
-10. [Known limitations (stated on purpose)](#10-known-limitations-stated-on-purpose)
-11. [Running it yourself](#11-running-it-yourself)
-12. [Project structure](#12-project-structure)
-13. [API reference](#13-api-reference)
-14. [Data sources & acknowledgments](#14-data-sources--acknowledgments)
+AquaSentinel is a full-stack water-quality monitoring and decision-support prototype for urban rivers. It combines a Random Forest classifier with one-year-ahead forecasting, SHAP explanations, out-of-distribution detection, and missingness-matched conformal prediction.
 
----
+The model-development dataset is drawn from the European Environment Agency Waterbase. External evaluation uses observations from the Bangladesh Department of Environment for the **Buriganga** and **Turag** rivers. The application is designed for environmental agencies that need to identify deteriorating stations and prioritize follow-up inspections under limited monitoring capacity.
 
-## 1. Challenge track
+> **Important scope statement:** AquaSentinel is a screening and prioritization tool. It does not replace laboratory testing, field inspection, or regulatory assessment.
 
-**Track 6 — Resilience Informatics.** AquaSentinel builds the informatics layer a
-water-stressed community or agency needs to become *resilient* to deteriorating
-freshwater conditions: not just a snapshot of current water quality, but a system that
-detects trends, forecasts what's likely next, quantifies its own uncertainty honestly,
-and helps decide where limited inspection resources should go first.
+This project was developed for the **OneAquaHealth IEEE Global Hackathon 2026 — Challenge Track 6: Resilience Informatics**.
 
-## 2. The problem & who it helps
+## Why this project matters
 
-Urban streams — especially in rapidly industrializing cities — can deteriorate faster
-than conventional, low-frequency lab-sampling programmes can respond to. Two rivers in
-Dhaka, Bangladesh, the **Buriganga** and the **Turag**, are both officially declared
-**Ecologically Critical Areas** by the Government of Bangladesh, and remain severely
-polluted more than a decade later.
+A current water-quality classification answers only one part of an operational problem. A monitoring team also needs to know whether conditions are worsening, which variables are contributing to the result, what may happen next year, where inspection effort should be directed, and whether the model is operating outside its training distribution.
 
-Most existing water-quality dashboards answer one question: *"is this sample safe right
-now?"* That's necessary but not sufficient for **resilience** — a community, a water
-utility, or an environmental agency needs to know:
+AquaSentinel brings these questions into one workflow:
 
-- **Is it getting worse?** — not just today's reading, but the real trend.
-- **Why?** — which specific measurements are driving the risk, in plain language.
-- **What's likely next year?** — a genuine forecast, not a guess.
-- **Where should we act first?** — when you can't inspect everywhere, where matters most?
-- **How sure are we?** — especially when some measurements simply aren't available.
+| Operational question | AquaSentinel component |
+|---|---|
+| What is the current risk? | Random Forest classification |
+| Which variables drive the result? | SHAP explanation |
+| Is the station deteriorating? | Multi-year early-warning state machine |
+| What may happen next year? | Walk-forward forecast model |
+| Where should an agency inspect first? | Inspection Priority ranking |
+| Is the input unlike the training data? | k-nearest-neighbour OOD detector |
+| How should uncertainty change with missing data? | Missingness-matched conformal prediction |
 
-**Who benefits:** local environmental agencies with limited inspection budgets (the
-Inspection Priority tool), citizens near a monitored river (the map, plain-language
-explanations, and citizen-reporting feature), and — importantly — **researchers and
-policymakers evaluating whether models built in data-rich regions can be responsibly
-deployed in data-scarce ones**, which is the project's core technical finding.
+## Contents
 
-## 3. What makes this different (innovation)
+- [Challenge track](#challenge-track)
+- [Main contributions](#main-contributions)
+- [Application overview](#application-overview)
+- [One Health connection](#one-health-connection)
+- [Architecture](#architecture)
+- [User workflow](#user-workflow)
+- [Data and methodology](#data-and-methodology)
+- [Evaluation at a glance](#evaluation-at-a-glance)
+- [Limitations](#limitations)
+- [Run locally](#run-locally)
+- [Project structure](#project-structure)
+- [API reference](#api-reference)
+- [Data sources and acknowledgments](#data-sources-and-acknowledgments)
 
-Most hackathon water-quality projects stop at "train a classifier, report accuracy."
-AquaSentinel goes four steps further, and every one of them is **real, tested, and
-honestly reported** — not a marketing claim:
+## Challenge track
 
-### 🔮 Genuine one-year-ahead forecasting
-Not just "is this risky now" but "is it likely to get worse next year." Trained on
-26,951 real consecutive-year transitions from EU monitoring stations, **walk-forward
-validated** (trained only on data through 2022, tested only on 2023–2024 — years it
-never saw). It beats a "nothing changes" persistence baseline, and the improvement is
-**statistically significant** (McNemar's test, *p* = 0.0057) — not just a bigger number,
-a real one.
+AquaSentinel addresses **Track 6: Resilience Informatics** by focusing on the information required to manage freshwater conditions when observations are incomplete or infrequent. The system extends beyond a static risk label: it estimates temporal change, produces a one-year-ahead forecast, reports uncertainty, detects domain shift, and ranks stations for possible inspection.
 
-### 🎯 Inspection Priority — decision support, not just alerts
-A transparent, auditable ranking of every monitored station by current severity,
-early-warning trend, forecast escalation, and data recency — so an agency with limited
-inspectors knows *where to send them first*, not just a long list of red flags.
+## Main contributions
 
-### 🚨 A real early-warning state machine
-Four documented, deterministic states — NORMAL / WATCH / WARNING / CRITICAL — computed
-from **actual multi-year station history** (7,577 real EU stations), not a black box.
-Every alert comes with the specific reasons it fired.
+### 1. Current risk classification
 
-### 🛡️ Missingness-aware conformal prediction *(the core research contribution)*
-This is the project's central methodological finding, and it's the reason AquaSentinel
-can be trusted in exactly the situation it's built for: **deploying a model where the
-measurement capability is different from where it was trained.**
+A Random Forest classifier estimates a water-quality risk category from monitoring measurements. The target label is generated using a transparent points-based rule informed by environmental water-quality standards.
 
-We show that naively calibrating a model's confidence on fully-measured training data,
-then reusing that calibration on inputs missing four key nutrient parameters (the real
-situation for Bangladesh, where the government's own monitoring programme doesn't
-measure them) causes the model to *silently* claim 90% confidence while actually being
-right only ~84% of the time. Calibrating separately for **the exact missingness pattern
-encountered at inference** restores the guarantee to ~90% — and, crucially, makes the
-model **honestly widen its answer** ("this could be Medium *or* High") instead of
-guessing, in the cases where it genuinely can't tell. This is a general, reusable fix
-for anyone deploying an ML model across a real-world measurement-capability gap — not
-specific to water quality.
+### 2. One-year-ahead forecasting
 
-### 🔎 Out-of-distribution detection
-Every prediction is checked against how far it sits from anything the model was
-actually trained on (nearest-neighbour distance in the model's own feature space). When
-applied to real Bangladesh data, 16 of 18 real yearly observations are flagged
-out-of-distribution - and the two that *aren't* flagged are exactly the two years
-(Turag 2022–2023) when the river's real Dissolved Oxygen genuinely recovered toward
-typical European levels. The detector is tracking real water-quality conditions, not
-an artifact of the data format.
+The forecast model estimates whether the risk category is likely to change in the following year. It is evaluated using walk-forward validation, in which earlier years are used for training and later years are held out for testing. The model is compared with a persistence baseline that assumes the current category remains unchanged.
 
-## 4. The working prototype
+### 3. Explainable predictions
 
-This is a **fully working, end-to-end application** - not a slide deck describing an
-idea:
+SHAP values identify the measurements that contribute most to an individual prediction. The frontend presents both technical explanations and a plain-language interpretation.
 
-- **Backend**: a Flask REST API serving a trained Random Forest classifier, a
-  walk-forward-validated forecasting model, an out-of-distribution detector, and
-  missingness-aware conformal calibration - 15+ endpoints, all tested.
-- **Frontend**: a React + Leaflet dashboard with five tabs - live map of 7,810 EU
-  monitoring stations with real-time filtering, a reading-entry form with SHAP
-  explanations, an Inspection Priority ranked list, a Bangladesh panel showing real
-  multi-year river history, and a Cross-Region Evaluation / Data & Methodology panel
-  for full transparency.
-- **Notebook**: the complete, executed, end-to-end data science pipeline — from raw
-  EEA CSV through model training, evaluation, the forecasting model, the OOD detector,
-  and the conformal calibration — every number in this README and in the accompanying
-  research paper traces back to a cell in this notebook.
+### 4. Inspection prioritization
 
-## 5. Connection to OneAquaHealth / One Health
+The Inspection Priority tool ranks stations using current severity, early-warning trend, forecast escalation, and data recency. The score components are displayed so that the ranking can be reviewed and audited.
 
-Freshwater rivers sit at the intersection of environmental health and human health:
-the same Buriganga and Turag waters that fail fisheries-protection thresholds are used
-for irrigation, informal domestic use, and sit upstream of a city of over 20 million
-people. A system that can flag deterioration early - and be honest about when it
-*can't* tell - is directly in service of the One Health principle that environmental,
-animal, and human health are interconnected and best managed together:
+### 5. Deterministic early-warning states
 
-- **Freshwater ecosystems**: the early-warning system and forecasting model target
-  ecological risk indicators (dissolved oxygen, organic load, nutrients) directly tied
-  to aquatic ecosystem health and fish survivability (the risk thresholds themselves
-  are drawn from EU and Bangladeshi fisheries-protection standards).
-- **Environmental health → human health**: BOD, ammonium, and pathogen-adjacent
-  indicators in urban rivers are well-established proxies for public-health-relevant
-  water contamination from industrial and municipal waste.
-- **Citizen engagement**: the "Report Local Water" feature lets community members
-  contribute supplementary observations (foam, smell, visible pollution), explicitly
-  and honestly labelled as contextual signals rather than lab measurements — citizen
-  science as part of the monitoring loop, not a replacement for it.
-- **Resilience under real-world constraints**: the entire project is built around the
-  reality that the regions most exposed to water-related health risk are often the
-  regions with the least monitoring infrastructure — which is exactly the gap the
-  conformal-prediction contribution addresses.
+The application assigns one of four states based on multi-year station history:
 
-## 6. Architecture & technology
-<img width="3120" height="684" alt="image" src="https://github.com/user-attachments/assets/3ca7b61d-170a-4f91-bb11-1699af0ddc7d" />
+`NORMAL` → `WATCH` → `WARNING` → `CRITICAL`
 
-```
+Each state includes the conditions that triggered it. The current implementation does not yet distinguish chronic severe pollution from acute deterioration.
+
+### 6. Missingness-matched conformal prediction
+
+The system reports prediction sets instead of relying only on a single confidence score. Calibration is matched to the missing-value pattern observed at inference time. This is relevant to cross-region deployment because Bangladesh observations do not contain four nutrient parameters available in the European training data.
+
+In the reported experiment, naive calibration achieved **84.3% coverage** while targeting 90%. Calibration matched to the observed missingness pattern achieved **90.4% coverage** and returned wider prediction sets when the available measurements did not sufficiently distinguish between categories.
+
+### 7. Out-of-distribution detection
+
+A nearest-neighbour detector estimates how far an input is from observations in the model's training feature space. This provides an additional warning when a prediction is made for a measurement profile that differs substantially from the training data.
+
+In the Bangladesh evaluation, **16 of 18 observations** were flagged as out-of-distribution. The two observations that were not flagged correspond to Turag observations from 2022–2023, when dissolved oxygen moved toward the range observed in the European training data. This is an association in the available evaluation data, not a causal validation.
+
+## Application overview
+
+AquaSentinel is organized as three connected layers:
+
+| Layer | Implementation | Responsibility |
+|---|---|---|
+| **User interface** | React, Vite, Leaflet, Tailwind CSS | Maps, forms, rankings, explanations, and evaluation views |
+| **Inference API** | Flask, Python, scikit-learn, SHAP | Predictions, forecasts, explanations, OOD checks, and model-card data |
+| **Reproducible pipeline** | Jupyter, pandas, scikit-learn | Data preparation, training, validation, metrics, and derived files |
+
+The repository includes trained models and derived data files so that the live application can run without retraining. The notebook can be rerun to reproduce the analysis from raw data.
+
+## One Health connection
+
+Freshwater quality connects environmental, animal, and human health. The Buriganga and Turag rivers support ecosystems and are located within a densely populated urban region. Changes in dissolved oxygen, organic load, ammonium, nutrients, and related indicators can affect aquatic organisms and indicate pollution sources relevant to public health.
+
+AquaSentinel supports this connection through:
+
+- **Ecosystem monitoring:** Risk and early-warning components focus on indicators associated with aquatic ecosystem health.
+- **Environmental exposure:** BOD, ammonium, and related indicators can signal contamination associated with industrial and municipal waste.
+- **Citizen participation:** The Report Local Water feature accepts observations such as foam, odour, and visible pollution. These are contextual signals, not substitutes for laboratory measurements.
+- **Monitoring resilience:** Missingness-aware uncertainty estimation addresses deployment where the target region does not measure all variables used during training.
+
+## Architecture
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/3ca7b61d-170a-4f91-bb11-1699af0ddc7d" alt="AquaSentinel system architecture" width="100%" />
+</p>
+
+The React frontend communicates with the Flask backend through HTTP endpoints. The backend loads the trained models and derived data produced by the Jupyter notebook. The notebook is treated as the reproducible modelling pipeline for the reported metrics.
+
+```text
 ┌─────────────────────────┐          ┌──────────────────────────────┐
 │  React + Vite frontend  │   HTTP   │      Flask backend           │
 │   • Leaflet map         │ ◄──────► │  • RandomForest classifier   │
@@ -185,133 +157,170 @@ animal, and human health are interconnected and best managed together:
               └───────────────────────┘                             └─────────────────────────┘
 ```
 
-**Stack:** Python (scikit-learn, SHAP, pandas), Flask, React, Leaflet, Tailwind CSS,
-Vite. No paid APIs, no proprietary services — everything runs on open data and open-
-source tooling.
+### Technology stack
 
-## 7. How it works — a judge's walkthrough
+- **Data science:** Python, pandas, scikit-learn, SHAP, Jupyter
+- **Backend:** Flask and Python REST endpoints
+- **Frontend:** React, Vite, Leaflet, Tailwind CSS
+- **Models:** Random Forest classifier and forecast model, k-nearest-neighbour OOD detector, conformal calibration
+- **Data:** Open environmental monitoring data and government river-water-quality reports
 
-1. **Europe Monitoring tab** — explore 7,810 real EU stations on the map, filter by
-   risk level or early-warning state, click any station for its real multi-year trend,
-   early-warning status, and next-year forecast. Or enter a reading manually to see a
-   live prediction with SHAP explanation (technical or plain-language) and a calibrated
-   confidence set.
-2. **🎯 Inspection Priority tab** — the ranked shortlist a real agency would use, with
-   the scoring formula fully shown.
-3. **🇧🇩 Bangladesh Demo tab** — real multi-year Buriganga/Turag history from official
-   government reports, with the model's prediction shown *next to* the transparent
-   rule-based label so the gap between them is visible, not hidden.
-4. **Cross-Region Evaluation tab** — the honest EU-vs-Bangladesh comparison, including
-   the out-of-distribution flags and domain-shift statistics.
-5. **Data & Methodology tab** — the full model card: training data, evaluation
-   methodology, and every stated limitation.
+No paid APIs or proprietary services are required.
 
-## 8. Data & methodology
+## User workflow
 
-- **Training data**: European Environment Agency Waterbase (WISE-6), river stations,
-  2010–2024, 6 countries, 40,638 station-year rows — real, public, open data.
-- **External test data**: Bangladesh Department of Environment's own annual *River
-  Water Quality Reports* (2015, 2021, 2022, 2023) — 18 real yearly observations across
-  the Buriganga and Turag, with an honestly disclosed 2016–2020 reporting gap that is
-  not bridged or estimated.
-- **Risk label**: a transparent, points-based rule, cited against EU Directive
-  2006/44/EC, the EU Nitrates Directive 91/676/EEC, US EPA guidance, and — notably —
-  independently corroborated by Bangladesh's *own* legal water-quality standard under
-  its Environmental Conservation Rules, 1997, which uses nearly identical thresholds.
-- **Model**: Random Forest (300 trees), evaluated under both a standard row-level split
-  and a stricter station-level split that prevents any station's data from leaking
-  between train and test.
+1. **Europe Monitoring:** Explore EU monitoring stations on the map. Filter by risk level or early-warning state, open a station's multi-year history, and view its forecast.
+2. **Reading Entry:** Enter a measurement and receive a risk prediction, SHAP explanation, calibrated prediction set, and OOD status.
+3. **Inspection Priority:** Review the ranked station list and inspect the components of the priority score.
+4. **Bangladesh Evaluation:** Review Buriganga and Turag histories and compare model predictions with transparent rule-based labels.
+5. **Cross-Region Evaluation:** Examine missingness patterns, OOD flags, and EU–Bangladesh domain-shift results.
+6. **Data and Methodology:** Review training data, evaluation design, model details, and limitations.
 
-## 9. Results — the honest numbers
+## Data and methodology
 
-| What | Result |
-|---|---|
-| Classification accuracy (station-level held-out split) | 99.4% (macro-F1 0.98) |
-| Forecast model vs. "nothing changes" baseline | 85.9% vs 85.0% accuracy — **statistically significant**, *p*=0.0057 |
-| Conformal coverage, naive calibration | 84.3% (claims 90% — silently overconfident) |
-| Conformal coverage, missingness-matched calibration | 90.4%, honestly hedges 13.4% of the time — **p<10⁻⁶ improvement** |
-| Bangladesh: model vs. rule-based label agreement | 1 of 18 real yearly observations — a systematic, explainable gap, not noise |
-| Bangladesh: out-of-distribution flag rate | 16 of 18, with the 2 exceptions matching a real, independently measured DO recovery |
+### Training data
 
-## 10. Known limitations (stated on purpose)
+The model-development dataset is the European Environment Agency Waterbase WISE-6 river-station dataset. The reported analysis uses **40,638 station-year rows** from **8,762 stations** across **six countries** for 2010–2024.
 
-We consider honestly-stated limitations a feature, not a weakness, of this submission:
+### External evaluation data
 
-- The forecast model only catches ~20% of stations that *actually* worsen the
-  following year — a real, disclosed gap, not hidden behind the headline accuracy
-  number.
-- The Bangladesh evidence (18 real observations, 2 rivers) is illustrative and
-  mechanistically well-explained, not a statistically powered multi-region validation.
-- The risk label is a transparent prototype screening rule, not an official regulatory
-  classification for any jurisdiction.
-- The early-warning state machine doesn't yet distinguish *chronic* severe pollution
-  from *acutely emerging* deterioration — both currently register as CRITICAL.
-- This is a **screening tool, not a laboratory replacement** — every part of the app
-  says so.
+The external evaluation uses annual observations from Bangladesh Department of Environment River Water Quality Reports for the Buriganga and Turag rivers. The reported evaluation contains **18 observations** from 2015, 2021, 2022, and 2023. The reporting gap from 2016 to 2020 is disclosed and is not filled through interpolation or estimation.
 
-## 11. Running it yourself
+### Risk label
+
+The risk label is generated by a transparent points-based rule. The thresholds are compared with EU Directive 2006/44/EC, the EU Nitrates Directive 91/676/EEC, US EPA guidance, and Bangladesh's Environmental Conservation Rules, 1997.
+
+### Classification model
+
+The classifier is a Random Forest model with 300 trees. It is evaluated using both a standard row-level split and a stricter station-level split. The station-level split prevents records from the same station from appearing in both training and test sets.
+
+### Forecast evaluation
+
+The one-year-ahead forecast uses walk-forward validation. The model is trained on data available up to a given year and evaluated on later observations. Its performance is compared with a persistence baseline.
+
+### Uncertainty and domain shift
+
+Conformal calibration is evaluated under the missingness pattern observed in Bangladesh. OOD detection uses nearest-neighbour distance in feature space to identify inputs that differ from the European training data.
+
+## Evaluation at a glance
+
+The following results are reported by the executed analysis notebook:
+
+| Metric | Result |
+|---|---:|
+| Classification accuracy — station-level held-out split | **99.4%** |
+| Classification macro-F1 | **0.98** |
+| Forecast accuracy | **85.9%** |
+| Persistence baseline accuracy | **85.0%** |
+| Forecast comparison | McNemar's test, *p* = 0.0057 |
+| Naive conformal coverage | **84.3%** |
+| Missingness-matched conformal coverage | **90.4%** |
+| Prediction-set hedging | **13.4%** of cases |
+| Bangladesh model/rule-label agreement | **1 of 18** observations |
+| Bangladesh OOD flags | **16 of 18** observations |
+
+> **Interpretation note:** Classification accuracy should be read together with the split design and class distribution. The forecast model identifies approximately 20% of stations that worsen in the following year in the reported evaluation, so accuracy alone does not represent complete early-warning performance.
+
+<details>
+<summary><strong>What the cross-region result indicates</strong></summary>
+
+The Bangladesh evaluation demonstrates a substantial difference between the training environment and the external evaluation environment. The model/rule-label agreement is 1 of 18 observations, while 16 of 18 observations are flagged as out-of-distribution. These results support using domain-shift and uncertainty indicators alongside the predicted class when applying the model outside the training region.
+
+</details>
+
+## Limitations
+
+AquaSentinel is a prototype screening and prioritization tool. It does not replace laboratory testing, regulatory assessment, or field inspection.
+
+- The Bangladesh evaluation contains 18 observations from two rivers. It is illustrative of cross-region behaviour and missingness effects, but it is not a statistically powered multi-region validation study.
+- The risk label is a transparent prototype screening rule, not an official regulatory classification for any jurisdiction.
+- The forecast model identifies approximately 20% of stations that worsen in the following year in the reported evaluation.
+- The early-warning state machine does not yet distinguish chronic severe pollution from acute deterioration. Both conditions can produce a `CRITICAL` state.
+- The two non-flagged Bangladesh observations coincide with a period of dissolved-oxygen recovery toward the European training range. This pattern is not an independent causal validation of the detector.
+- Citizen reports are contextual observations and are not treated as laboratory measurements.
+
+## Run locally
+
+### Backend
 
 ```bash
-# Backend
 cd backend
-python3 -m venv venv && source venv/bin/activate
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
-python3 app.py                      # → http://127.0.0.1:5000
+python3 app.py
+```
 
-# Frontend (second terminal)
+The backend runs at `http://127.0.0.1:5000` by default.
+
+### Frontend
+
+Open a second terminal:
+
+```bash
 cd frontend
 npm install
-npm run dev                         # → http://localhost:5173
+npm run dev
 ```
 
-All trained models and derived data files are already included — no retraining
-required to run the live app. To reproduce everything from raw data, open
-`notebook/AquaSentinel_notebook.ipynb` and run it top to bottom.
+The frontend runs at `http://localhost:5173` by default.
 
-## 12. Project structure
+### Reproduce the analysis
 
+The trained models and derived data files are included for running the application. To reproduce the modelling pipeline from raw data, open the following notebook and run it from top to bottom:
+
+```text
+notebook/AquaSentinel_notebook.ipynb
 ```
+
+## Project structure
+
+```text
 AquaSentinel/
-├── notebook/                 # the full, executed data-science pipeline (source of truth)
+├── notebook/
 │   ├── AquaSentinel_notebook.ipynb
 │   └── wise_river_wide.csv
-├── backend/                  # Flask API
-│   ├── app.py                 # all endpoints
+├── backend/
+│   ├── app.py
 │   ├── requirements.txt
-│   └── *.pkl / *.json         # trained models + derived data (pre-built, ready to run)
-└── frontend/                  # React + Leaflet dashboard
+│   └── *.pkl / *.json
+└── frontend/
     └── src/
         ├── App.jsx
         └── components/
 ```
 
-## 13. API reference
+## API reference
 
 | Endpoint | Method | Description |
 |---|---|---|
-| `/api/predict` | POST | Risk prediction + SHAP explanation + calibrated confidence set |
-| `/api/station/<id>/history` | GET | Real multi-year EU station trend + early-warning state |
-| `/api/station/<id>/forecast` | GET | Backtested one-year-ahead forecast |
-| `/api/priority` | GET | Transparent Inspection Priority ranking |
-| `/api/bangladesh/history/<river>` | GET | Real multi-year Buriganga/Turag history |
-| `/api/cross_region_eval` | GET | EU vs. Bangladesh honest comparison |
-| `/api/model_card` | GET | Full model card: training, evaluation, limitations |
-| `/api/citizen_reports` | GET/POST | Citizen water observations |
+| `/api/predict` | `POST` | Risk prediction, SHAP explanation, and calibrated prediction set |
+| `/api/station/<id>/history` | `GET` | Multi-year EU station history and early-warning state |
+| `/api/station/<id>/forecast` | `GET` | Backtested one-year-ahead forecast |
+| `/api/priority` | `GET` | Inspection Priority ranking |
+| `/api/bangladesh/history/<river>` | `GET` | Buriganga or Turag multi-year history |
+| `/api/cross_region_eval` | `GET` | EU and Bangladesh comparison |
+| `/api/model_card` | `GET` | Training, evaluation, and limitation summary |
+| `/api/citizen_reports` | `GET/POST` | Citizen water-quality observations |
 
-*(Full endpoint list in `backend/app.py`.)*
+The complete endpoint list is available in `backend/app.py`.
 
-## 14. Data sources & acknowledgments
+## Data sources and acknowledgments
 
-- European Environment Agency, [Waterbase (WISE-6) Water Quality dataset](https://www.eea.europa.eu/en/datahub/datahubitem-view/fbf3717c-cd7b-4785-933a-d0cf510542e1)
-- Bangladesh Department of Environment, *River Water Quality Report* (2015, 2021, 2022, 2023)
-- Built for the OneAquaHealth IEEE Global Hackathon 2026, Track 6: Resilience Informatics
+- European Environment Agency, Waterbase WISE-6 Water Quality dataset [1]
+- Bangladesh Department of Environment, *River Water Quality Report* for 2015, 2021, 2022, and 2023
+- OneAquaHealth IEEE Global Hackathon 2026, Challenge Track 6: Resilience Informatics
+
+## References
+
+[1]: https://www.eea.europa.eu/en/datahub/datahubitem-view/fbf3717c-cd7b-4785-933a-d0cf510542e1 "European Environment Agency Waterbase WISE-6 Water Quality dataset"
 
 ---
 
 <div align="center">
 
-**AquaSentinel does not replace laboratory testing. It helps decide where to look
-sooner, why risk is changing, and when action may be needed — honestly reporting what
-it does and doesn't know.**
+**AquaSentinel helps identify where water-quality conditions may be changing and where further investigation may be useful.**
+
+*Final decisions should be based on laboratory measurements, field inspection, and the relevant regulatory framework.*
 
 </div>
