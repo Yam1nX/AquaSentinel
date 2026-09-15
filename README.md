@@ -159,6 +159,7 @@ animal, and human health are interconnected and best managed together:
   conformal-prediction contribution addresses.
 
 ## 6. Architecture & technology
+<img width="3120" height="684" alt="image" src="https://github.com/user-attachments/assets/3ca7b61d-170a-4f91-bb11-1699af0ddc7d" />
 
 ```
 ┌─────────────────────────┐          ┌──────────────────────────────┐
