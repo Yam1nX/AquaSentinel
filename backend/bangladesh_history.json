@@ -1,0 +1,467 @@
+{
+  "buriganga": {
+    "river": "Buriganga",
+    "source": "Bangladesh Department of Environment (DoE), River Water Quality Reports 2015/2021/2022/2023",
+    "years": [
+      {
+        "year": 2010,
+        "risk_level": "High",
+        "model_predicted_level": "Medium",
+        "risk_points": 4,
+        "params": {
+          "pH": 7.28,
+          "Dissolved oxygen": 2.15,
+          "BOD5": 17.34,
+          "Ammonium": null,
+          "Nitrate": null,
+          "Nitrite": null,
+          "Total phosphorus": null,
+          "Water temperature": null,
+          "Electrical conductivity": null
+        },
+        "measured_fields": [
+          "pH",
+          "Dissolved oxygen",
+          "BOD5"
+        ]
+      },
+      {
+        "year": 2011,
+        "risk_level": "High",
+        "model_predicted_level": "Medium",
+        "risk_points": 4,
+        "params": {
+          "pH": 7.15,
+          "Dissolved oxygen": 1.8,
+          "BOD5": 24.27,
+          "Ammonium": null,
+          "Nitrate": null,
+          "Nitrite": null,
+          "Total phosphorus": null,
+          "Water temperature": null,
+          "Electrical conductivity": null
+        },
+        "measured_fields": [
+          "pH",
+          "Dissolved oxygen",
+          "BOD5"
+        ]
+      },
+      {
+        "year": 2012,
+        "risk_level": "High",
+        "model_predicted_level": "Medium",
+        "risk_points": 4,
+        "params": {
+          "pH": 7.31,
+          "Dissolved oxygen": 1.55,
+          "BOD5": 17.32,
+          "Ammonium": null,
+          "Nitrate": null,
+          "Nitrite": null,
+          "Total phosphorus": null,
+          "Water temperature": null,
+          "Electrical conductivity": null
+        },
+        "measured_fields": [
+          "pH",
+          "Dissolved oxygen",
+          "BOD5"
+        ]
+      },
+      {
+        "year": 2013,
+        "risk_level": "High",
+        "model_predicted_level": "Medium",
+        "risk_points": 4,
+        "params": {
+          "pH": 7.11,
+          "Dissolved oxygen": 2.43,
+          "BOD5": 15.18,
+          "Ammonium": null,
+          "Nitrate": null,
+          "Nitrite": null,
+          "Total phosphorus": null,
+          "Water temperature": null,
+          "Electrical conductivity": null
+        },
+        "measured_fields": [
+          "pH",
+          "Dissolved oxygen",
+          "BOD5"
+        ]
+      },
+      {
+        "year": 2014,
+        "risk_level": "High",
+        "model_predicted_level": "Medium",
+        "risk_points": 4,
+        "params": {
+          "pH": 7.26,
+          "Dissolved oxygen": 1.6,
+          "BOD5": 17.63,
+          "Ammonium": null,
+          "Nitrate": null,
+          "Nitrite": null,
+          "Total phosphorus": null,
+          "Water temperature": null,
+          "Electrical conductivity": null
+        },
+        "measured_fields": [
+          "pH",
+          "Dissolved oxygen",
+          "BOD5"
+        ]
+      },
+      {
+        "year": 2015,
+        "risk_level": "High",
+        "model_predicted_level": "Medium",
+        "risk_points": 4,
+        "params": {
+          "pH": 7.38,
+          "Dissolved oxygen": 1.55,
+          "BOD5": 12.26,
+          "Ammonium": null,
+          "Nitrate": null,
+          "Nitrite": null,
+          "Total phosphorus": null,
+          "Water temperature": null,
+          "Electrical conductivity": null
+        },
+        "measured_fields": [
+          "pH",
+          "Dissolved oxygen",
+          "BOD5"
+        ]
+      },
+      {
+        "year": 2021,
+        "risk_level": "High",
+        "model_predicted_level": "Medium",
+        "risk_points": 4,
+        "params": {
+          "pH": 7.28,
+          "Dissolved oxygen": 1.84,
+          "BOD5": 18.47,
+          "Ammonium": null,
+          "Nitrate": null,
+          "Nitrite": null,
+          "Total phosphorus": null,
+          "Water temperature": null,
+          "Electrical conductivity": null
+        },
+        "measured_fields": [
+          "pH",
+          "Dissolved oxygen",
+          "BOD5"
+        ]
+      },
+      {
+        "year": 2022,
+        "risk_level": "High",
+        "model_predicted_level": "Medium",
+        "risk_points": 4,
+        "params": {
+          "pH": 7.22,
+          "Dissolved oxygen": 2.72,
+          "BOD5": 13.73,
+          "Ammonium": null,
+          "Nitrate": null,
+          "Nitrite": null,
+          "Total phosphorus": null,
+          "Water temperature": null,
+          "Electrical conductivity": null
+        },
+        "measured_fields": [
+          "pH",
+          "Dissolved oxygen",
+          "BOD5"
+        ]
+      },
+      {
+        "year": 2023,
+        "risk_level": "High",
+        "model_predicted_level": "Medium",
+        "risk_points": 4,
+        "params": {
+          "pH": 7.28,
+          "Dissolved oxygen": 2.43,
+          "BOD5": 10.89,
+          "Ammonium": null,
+          "Nitrate": null,
+          "Nitrite": null,
+          "Total phosphorus": null,
+          "Water temperature": null,
+          "Electrical conductivity": null
+        },
+        "measured_fields": [
+          "pH",
+          "Dissolved oxygen",
+          "BOD5"
+        ]
+      }
+    ],
+    "early_warning": {
+      "state": "CRITICAL",
+      "reasons": [
+        "Current predicted risk is High as of 2023.",
+        "Risk was also High in the prior recorded year (2022)."
+      ],
+      "slope": -0.0,
+      "delta_points_last_two": 0
+    },
+    "data_gap_years": [
+      2016,
+      2017,
+      2018,
+      2019,
+      2020
+    ],
+    "measured_parameters": [
+      "pH",
+      "Dissolved oxygen",
+      "BOD5"
+    ],
+    "imputed_parameters": [
+      "Ammonium",
+      "Nitrate",
+      "Nitrite",
+      "Total phosphorus",
+      "Water temperature",
+      "Electrical conductivity"
+    ]
+  },
+  "turag": {
+    "river": "Turag",
+    "source": "Bangladesh Department of Environment (DoE), River Water Quality Reports 2015/2021/2022/2023",
+    "years": [
+      {
+        "year": 2010,
+        "risk_level": "High",
+        "model_predicted_level": "Medium",
+        "risk_points": 4,
+        "params": {
+          "pH": 6.94,
+          "Dissolved oxygen": 1.87,
+          "BOD5": 20.21,
+          "Ammonium": null,
+          "Nitrate": null,
+          "Nitrite": null,
+          "Total phosphorus": null,
+          "Water temperature": null,
+          "Electrical conductivity": null
+        },
+        "measured_fields": [
+          "pH",
+          "Dissolved oxygen",
+          "BOD5"
+        ]
+      },
+      {
+        "year": 2011,
+        "risk_level": "High",
+        "model_predicted_level": "Medium",
+        "risk_points": 4,
+        "params": {
+          "pH": 7.63,
+          "Dissolved oxygen": 2.21,
+          "BOD5": 15.73,
+          "Ammonium": null,
+          "Nitrate": null,
+          "Nitrite": null,
+          "Total phosphorus": null,
+          "Water temperature": null,
+          "Electrical conductivity": null
+        },
+        "measured_fields": [
+          "pH",
+          "Dissolved oxygen",
+          "BOD5"
+        ]
+      },
+      {
+        "year": 2012,
+        "risk_level": "High",
+        "model_predicted_level": "Medium",
+        "risk_points": 4,
+        "params": {
+          "pH": 7.54,
+          "Dissolved oxygen": 1.66,
+          "BOD5": 18.91,
+          "Ammonium": null,
+          "Nitrate": null,
+          "Nitrite": null,
+          "Total phosphorus": null,
+          "Water temperature": null,
+          "Electrical conductivity": null
+        },
+        "measured_fields": [
+          "pH",
+          "Dissolved oxygen",
+          "BOD5"
+        ]
+      },
+      {
+        "year": 2013,
+        "risk_level": "High",
+        "model_predicted_level": "Medium",
+        "risk_points": 4,
+        "params": {
+          "pH": 7.39,
+          "Dissolved oxygen": 1.84,
+          "BOD5": 18.27,
+          "Ammonium": null,
+          "Nitrate": null,
+          "Nitrite": null,
+          "Total phosphorus": null,
+          "Water temperature": null,
+          "Electrical conductivity": null
+        },
+        "measured_fields": [
+          "pH",
+          "Dissolved oxygen",
+          "BOD5"
+        ]
+      },
+      {
+        "year": 2014,
+        "risk_level": "High",
+        "model_predicted_level": "Medium",
+        "risk_points": 4,
+        "params": {
+          "pH": 7.52,
+          "Dissolved oxygen": 1.72,
+          "BOD5": 21.33,
+          "Ammonium": null,
+          "Nitrate": null,
+          "Nitrite": null,
+          "Total phosphorus": null,
+          "Water temperature": null,
+          "Electrical conductivity": null
+        },
+        "measured_fields": [
+          "pH",
+          "Dissolved oxygen",
+          "BOD5"
+        ]
+      },
+      {
+        "year": 2015,
+        "risk_level": "High",
+        "model_predicted_level": "Medium",
+        "risk_points": 4,
+        "params": {
+          "pH": 7.23,
+          "Dissolved oxygen": 1.87,
+          "BOD5": 21.58,
+          "Ammonium": null,
+          "Nitrate": null,
+          "Nitrite": null,
+          "Total phosphorus": null,
+          "Water temperature": null,
+          "Electrical conductivity": null
+        },
+        "measured_fields": [
+          "pH",
+          "Dissolved oxygen",
+          "BOD5"
+        ]
+      },
+      {
+        "year": 2021,
+        "risk_level": "High",
+        "model_predicted_level": "Medium",
+        "risk_points": 4,
+        "params": {
+          "pH": 7.2,
+          "Dissolved oxygen": 3.47,
+          "BOD5": 16.25,
+          "Ammonium": null,
+          "Nitrate": null,
+          "Nitrite": null,
+          "Total phosphorus": null,
+          "Water temperature": null,
+          "Electrical conductivity": null
+        },
+        "measured_fields": [
+          "pH",
+          "Dissolved oxygen",
+          "BOD5"
+        ]
+      },
+      {
+        "year": 2022,
+        "risk_level": "Medium",
+        "model_predicted_level": "Medium",
+        "risk_points": 3,
+        "params": {
+          "pH": 7.49,
+          "Dissolved oxygen": 4.41,
+          "BOD5": 9.45,
+          "Ammonium": null,
+          "Nitrate": null,
+          "Nitrite": null,
+          "Total phosphorus": null,
+          "Water temperature": null,
+          "Electrical conductivity": null
+        },
+        "measured_fields": [
+          "pH",
+          "Dissolved oxygen",
+          "BOD5"
+        ]
+      },
+      {
+        "year": 2023,
+        "risk_level": "High",
+        "model_predicted_level": "Medium",
+        "risk_points": 4,
+        "params": {
+          "pH": 7.42,
+          "Dissolved oxygen": 3.94,
+          "BOD5": 9.14,
+          "Ammonium": null,
+          "Nitrate": null,
+          "Nitrite": null,
+          "Total phosphorus": null,
+          "Water temperature": null,
+          "Electrical conductivity": null
+        },
+        "measured_fields": [
+          "pH",
+          "Dissolved oxygen",
+          "BOD5"
+        ]
+      }
+    ],
+    "early_warning": {
+      "state": "WATCH",
+      "reasons": [
+        "A mild but real upward movement was detected in the most recent readings."
+      ],
+      "slope": -0.032,
+      "delta_points_last_two": 1
+    },
+    "data_gap_years": [
+      2016,
+      2017,
+      2018,
+      2019,
+      2020
+    ],
+    "measured_parameters": [
+      "pH",
+      "Dissolved oxygen",
+      "BOD5"
+    ],
+    "imputed_parameters": [
+      "Ammonium",
+      "Nitrate",
+      "Nitrite",
+      "Total phosphorus",
+      "Water temperature",
+      "Electrical conductivity"
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "row_level_split": {
+    "description": "80/20 stratified split by row. Imputer fit on train only (Section 6.2; leak-corrected vs. Section 5's global fit).",
+    "n_train": 32510,
+    "n_test": 8128,
+    "dummy_most_frequent": {
+      "accuracy": 0.8034,
+      "macro_f1": 0.297
+    },
+    "logistic_regression": {
+      "accuracy": 0.8768,
+      "macro_f1": 0.7134
+    },
+    "random_forest": {
+      "accuracy": 0.9942,
+      "macro_f1": 0.9825
+    }
+  },
+  "station_level_split": {
+    "description": "80/20 split by MONITORING STATION -- no station appears in both train and test.",
+    "n_train_rows": 32511,
+    "n_test_rows": 8127,
+    "n_train_stations": 7009,
+    "n_test_stations": 1753,
+    "random_forest": {
+      "accuracy": 0.9943,
+      "macro_f1": 0.98
+    }
+  },
+  "class_distribution_full_dataset": {
+    "Low": 32648,
+    "Medium": 6595,
+    "High": 1395
+  },
+  "notes": [
+    "The row-level split matches this notebook's Section 5/6 methodology, except the imputer here (Section 6.2) is fit on train only.",
+    "The station-level split is the more scientifically honest generalization estimate, since EEA stations recur across multiple years.",
+    "Both are reported rather than picking the more favorable number."
+  ]
+}
