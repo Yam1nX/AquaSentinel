@@ -74,7 +74,7 @@ AquaSentinel brings these questions into one workflow:
 | Is the input unlike the training data? | k-nearest-neighbour OOD detector |
 | How should uncertainty change with missing data? | Missingness-matched conformal prediction |
 
-[Challenge](#challenge-track) │ [Contributions](#main-contributions) │ [Overview](#application-overview) │ [One Health](#one-health-connection) │ [Architecture](#architecture) │ [Workflow](#user-workflow) │ [Methodology](#data-and-methodology) │ [Evaluation](#evaluation-at-a-glance) │ [Limitations](#limitations) │ [Setup](#run-locally) │ [Sources](#data-sources-and-acknowledgments)
+[Contributions](#main-contributions) │ [Overview](#application-overview) │ [One Health](#one-health-connection) │ [Architecture](#architecture) │ [Methodology](#data-and-methodology) │ [Evaluation](#evaluation-at-a-glance) │ [Limitations](#limitations) │ [Sources](#data-sources-and-acknowledgments)
 
 ## Challenge track
 
