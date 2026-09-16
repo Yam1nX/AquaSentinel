@@ -27,7 +27,6 @@
 ## Overview
 <div align="center">
 <img width="1280" height="720" alt="AquaSentinel_Animated" src="https://github.com/user-attachments/assets/38e960fe-e8ce-4463-92fc-2f1d01eb5ca3" />
-<img width="1501" height="956" alt="2c" src="https://github.com/user-attachments/assets/e627e866-bb63-4fe2-89d6-bae1a89b03c0" />
 <details>
 <summary><strong>Explore the AquaSentinel Interface</strong></summary>
 
