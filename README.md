@@ -26,7 +26,7 @@
 
 ## Overview
 <div align="center">
-<img width="2760" height="1960" alt="aquasentinel_project_poster" src="https://github.com/user-attachments/assets/ba9e4e95-aa38-4251-b2ee-a041fecc3e25" />
+<img width="1501" height="956" alt="2c" src="https://github.com/user-attachments/assets/e627e866-bb63-4fe2-89d6-bae1a89b03c0" />
 <details>
 <summary><strong>Explore the AquaSentinel Interface</strong></summary>
 
