@@ -50,11 +50,11 @@ AquaSentinel brings these questions into one workflow:
 | Is the input unlike the training data? | k-nearest-neighbour OOD detector |
 | How should uncertainty change with missing data? | Missingness-matched conformal prediction |
 
-## 📋 Contents
+## Contents
 
-[Challenge](#challenge-track) · [Contributions](#main-contributions) · [Overview](#application-overview) · [One Health](#one-health-connection) · [Architecture](#architecture) · [Workflow](#user-workflow) · [Methodology](#data-and-methodology) · [Evaluation](#evaluation-at-a-glance) · [Limitations](#limitations) · [Setup](#run-locally) · [Structure](#project-structure) · [API](#api-reference) · [Sources](#data-sources-and-acknowledgments)
+[Challenge](#challenge-track) │ [Contributions](#main-contributions) │ [Overview](#application-overview) │ [One Health](#one-health-connection) │ [Architecture](#architecture) │ [Workflow](#user-workflow) │ [Methodology](#data-and-methodology) │ [Evaluation](#evaluation-at-a-glance) │ [Limitations](#limitations) │ [Setup](#run-locally) │ [Sources](#data-sources-and-acknowledgments)
 
-## 🏆 Challenge track
+## Challenge track
 
 AquaSentinel addresses **Track 6: Resilience Informatics** by focusing on the information required to manage freshwater conditions when observations are incomplete or infrequent. The system extends beyond a static risk label: it estimates temporal change, produces a one-year-ahead forecast, reports uncertainty, detects domain shift, and ranks stations for possible inspection.
 
@@ -62,7 +62,7 @@ AquaSentinel addresses **Track 6: Resilience Informatics** by focusing on the in
   <img src="https://capsule-render.vercel.app/api?type=rect&color=0:12B886,50:2E9BFF,100:0B5FFF&height=3&width=1200" width="100%" alt="divider" />
 </p>
 
-## ✨ Main contributions
+## Main contributions
 
 ### 1. Current risk classification
 
@@ -100,7 +100,7 @@ A nearest-neighbour detector estimates how far an input is from observations in 
 
 In the Bangladesh evaluation, **16 of 18 observations** were flagged as out-of-distribution. The two observations that were not flagged correspond to Turag observations from 2022–2023, when dissolved oxygen moved toward the range observed in the European training data. This is an association in the available evaluation data, not a causal validation.
 
-## 🧩 Application overview
+## Application overview
 
 AquaSentinel is organized as three connected layers:
 
@@ -112,7 +112,7 @@ AquaSentinel is organized as three connected layers:
 
 The repository includes trained models and derived data files so that the live application can run without retraining. The notebook can be rerun to reproduce the analysis from raw data.
 
-## 🌍 One Health connection
+## One Health connection
 
 Freshwater quality connects environmental, animal, and human health. The Buriganga and Turag rivers support ecosystems and are located within a densely populated urban region. Changes in dissolved oxygen, organic load, ammonium, nutrients, and related indicators can affect aquatic organisms and indicate pollution sources relevant to public health.
 
@@ -127,7 +127,7 @@ AquaSentinel supports this connection through:
   <img src="https://capsule-render.vercel.app/api?type=rect&color=0:0B5FFF,50:2E9BFF,100:12B886&height=3&width=1200" width="100%" alt="divider" />
 </p>
 
-## 🏗️ Architecture
+## Architecture
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/3ca7b61d-170a-4f91-bb11-1699af0ddc7d" alt="AquaSentinel system architecture" width="100%" />
@@ -169,7 +169,7 @@ The React frontend communicates with the Flask backend through HTTP endpoints. T
 
 No paid APIs or proprietary services are required.
 
-## 🗺️ User workflow
+## User workflow
 
 1. **Europe Monitoring:** Explore EU monitoring stations on the map. Filter by risk level or early-warning state, open a station's multi-year history, and view its forecast.
 2. **Reading Entry:** Enter a measurement and receive a risk prediction, SHAP explanation, calibrated prediction set, and OOD status.
@@ -182,7 +182,7 @@ No paid APIs or proprietary services are required.
   <img src="https://capsule-render.vercel.app/api?type=rect&color=0:12B886,50:2E9BFF,100:0B5FFF&height=3&width=1200" width="100%" alt="divider" />
 </p>
 
-## 📊 Data and methodology
+## Data and methodology
 
 ### Training data
 
@@ -208,7 +208,7 @@ The one-year-ahead forecast uses walk-forward validation. The model is trained o
 
 Conformal calibration is evaluated under the missingness pattern observed in Bangladesh. OOD detection uses nearest-neighbour distance in feature space to identify inputs that differ from the European training data.
 
-## 📈 Evaluation at a glance
+## Evaluation at a glance
 
 The following results are reported by the executed analysis notebook:
 
@@ -234,7 +234,7 @@ The Bangladesh evaluation demonstrates a substantial difference between the trai
 
 </details>
 
-## ⚠️ Limitations
+## Limitations
 
 AquaSentinel is a prototype screening and prioritization tool. It does not replace laboratory testing, regulatory assessment, or field inspection.
 
@@ -249,7 +249,7 @@ AquaSentinel is a prototype screening and prioritization tool. It does not repla
   <img src="https://capsule-render.vercel.app/api?type=rect&color=0:0B5FFF,50:2E9BFF,100:12B886&height=3&width=1200" width="100%" alt="divider" />
 </p>
 
-## 💻 Run locally
+## Run locally
 
 ### Backend
 
@@ -283,7 +283,7 @@ The trained models and derived data files are included for running the applicati
 notebook/AquaSentinel_notebook.ipynb
 ```
 
-## 📁 Project structure
+## Project structure
 
 ```text
 AquaSentinel/
@@ -300,7 +300,7 @@ AquaSentinel/
         └── components/
 ```
 
-## 🔌 API reference
+## API reference
 
 | Endpoint | Method | Description |
 |---|---|---|
@@ -315,13 +315,13 @@ AquaSentinel/
 
 The complete endpoint list is available in `backend/app.py`.
 
-## 🙏 Data sources and acknowledgments
+## Data sources and acknowledgments
 
 - European Environment Agency, Waterbase WISE-6 Water Quality dataset [1]
 - Bangladesh Department of Environment, *River Water Quality Report* for 2015, 2021, 2022, and 2023
 - OneAquaHealth IEEE Global Hackathon 2026, Challenge Track 6: Resilience Informatics
 
-## 📚 References
+## References
 
 [1]: https://www.eea.europa.eu/en/datahub/datahubitem-view/fbf3717c-cd7b-4785-933a-d0cf510542e1 "European Environment Agency Waterbase WISE-6 Water Quality dataset"
 
