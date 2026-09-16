@@ -1,22 +1,28 @@
+<a name="top"></a>
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0B5FFF,50:2E9BFF,100:12B886&height=200&section=header&text=AquaSentinel&fontSize=52&fontColor=FFFFFF&animation=fadeIn&fontAlignY=38&desc=Predictive%20Early-Warning%20for%20Urban%20Stream%20Health&descAlignY=58&descSize=18" width="100%" alt="AquaSentinel banner" />
+</p>
+
 <div align="center">
 
-# AquaSentinel
+# 💧 AquaSentinel
 
-### Predictive Early-Warning and Decision Support for Urban Stream Health
+<img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=20&duration=2800&pause=900&color=2E9BFF&center=true&vCenter=true&width=680&lines=Predictive+Early-Warning+and+Decision+Support;Detecting+Change+%C2%B7+Explaining+Risk+%C2%B7+Forecasting+Ahead;Prioritizing+Inspection+for+Urban+Stream+Health" alt="Typing SVG" />
 
-[![Track](https://img.shields.io/badge/IEEE%20Global%20Hackathon-2026-0B5FFF?style=for-the-badge)](#)
-[![Challenge](https://img.shields.io/badge/Track%206-Resilience%20Informatics-12B886?style=for-the-badge)](#)
-[![Backend](https://img.shields.io/badge/Backend-Flask-111827?style=for-the-badge&logo=flask&logoColor=white)](#)
-[![Frontend](https://img.shields.io/badge/Frontend-React%20%2B%20Vite-111827?style=for-the-badge&logo=react&logoColor=61DAFB)](#)
-[![License](https://img.shields.io/badge/Data-Open%20Sources-7C3AED?style=for-the-badge)](#-data-sources-and-acknowledgments)
+[![Track](https://img.shields.io/badge/IEEE%20Global%20Hackathon-2026-1D4ED8?style=for-the-badge&labelColor=172033)](#)
+[![Challenge](https://img.shields.io/badge/Track%206-Resilience%20Informatics-0F9D8A?style=for-the-badge&labelColor=172033)](#)
+[![Backend](https://img.shields.io/badge/Backend-Flask-E67E22?style=for-the-badge&logo=flask&logoColor=white&labelColor=172033)](#)
+[![Frontend](https://img.shields.io/badge/Frontend-React%20%2B%20Vite-7C3AED?style=for-the-badge&logo=react&logoColor=61DAFB&labelColor=172033)](#)
+
+<br/>
 
 **A practical water-quality intelligence system for detecting change, explaining risk, forecasting the next year, and prioritizing inspection.**
 
-[Overview](#overview) · [Evaluation](#evaluation-at-a-glance) · [Architecture](#architecture) · [Run locally](#run-locally)
-
 </div>
 
----
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:0B5FFF,50:2E9BFF,100:12B886&height=3&width=1200" width="100%" alt="divider" />
+</p>
 
 ## Overview
 
@@ -44,27 +50,19 @@ AquaSentinel brings these questions into one workflow:
 | Is the input unlike the training data? | k-nearest-neighbour OOD detector |
 | How should uncertainty change with missing data? | Missingness-matched conformal prediction |
 
-## Contents
+## 📋 Contents
 
-- [Challenge track](#challenge-track)
-- [Main contributions](#main-contributions)
-- [Application overview](#application-overview)
-- [One Health connection](#one-health-connection)
-- [Architecture](#architecture)
-- [User workflow](#user-workflow)
-- [Data and methodology](#data-and-methodology)
-- [Evaluation at a glance](#evaluation-at-a-glance)
-- [Limitations](#limitations)
-- [Run locally](#run-locally)
-- [Project structure](#project-structure)
-- [API reference](#api-reference)
-- [Data sources and acknowledgments](#data-sources-and-acknowledgments)
+[Challenge](#challenge-track) · [Contributions](#main-contributions) · [Overview](#application-overview) · [One Health](#one-health-connection) · [Architecture](#architecture) · [Workflow](#user-workflow) · [Methodology](#data-and-methodology) · [Evaluation](#evaluation-at-a-glance) · [Limitations](#limitations) · [Setup](#run-locally) · [Structure](#project-structure) · [API](#api-reference) · [Sources](#data-sources-and-acknowledgments)
 
-## Challenge track
+## 🏆 Challenge track
 
 AquaSentinel addresses **Track 6: Resilience Informatics** by focusing on the information required to manage freshwater conditions when observations are incomplete or infrequent. The system extends beyond a static risk label: it estimates temporal change, produces a one-year-ahead forecast, reports uncertainty, detects domain shift, and ranks stations for possible inspection.
 
-## Main contributions
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:12B886,50:2E9BFF,100:0B5FFF&height=3&width=1200" width="100%" alt="divider" />
+</p>
+
+## ✨ Main contributions
 
 ### 1. Current risk classification
 
@@ -102,7 +100,7 @@ A nearest-neighbour detector estimates how far an input is from observations in 
 
 In the Bangladesh evaluation, **16 of 18 observations** were flagged as out-of-distribution. The two observations that were not flagged correspond to Turag observations from 2022–2023, when dissolved oxygen moved toward the range observed in the European training data. This is an association in the available evaluation data, not a causal validation.
 
-## Application overview
+## 🧩 Application overview
 
 AquaSentinel is organized as three connected layers:
 
@@ -114,7 +112,7 @@ AquaSentinel is organized as three connected layers:
 
 The repository includes trained models and derived data files so that the live application can run without retraining. The notebook can be rerun to reproduce the analysis from raw data.
 
-## One Health connection
+## 🌍 One Health connection
 
 Freshwater quality connects environmental, animal, and human health. The Buriganga and Turag rivers support ecosystems and are located within a densely populated urban region. Changes in dissolved oxygen, organic load, ammonium, nutrients, and related indicators can affect aquatic organisms and indicate pollution sources relevant to public health.
 
@@ -125,7 +123,11 @@ AquaSentinel supports this connection through:
 - **Citizen participation:** The Report Local Water feature accepts observations such as foam, odour, and visible pollution. These are contextual signals, not substitutes for laboratory measurements.
 - **Monitoring resilience:** Missingness-aware uncertainty estimation addresses deployment where the target region does not measure all variables used during training.
 
-## Architecture
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:0B5FFF,50:2E9BFF,100:12B886&height=3&width=1200" width="100%" alt="divider" />
+</p>
+
+## 🏗️ Architecture
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/3ca7b61d-170a-4f91-bb11-1699af0ddc7d" alt="AquaSentinel system architecture" width="100%" />
@@ -167,7 +169,7 @@ The React frontend communicates with the Flask backend through HTTP endpoints. T
 
 No paid APIs or proprietary services are required.
 
-## User workflow
+## 🗺️ User workflow
 
 1. **Europe Monitoring:** Explore EU monitoring stations on the map. Filter by risk level or early-warning state, open a station's multi-year history, and view its forecast.
 2. **Reading Entry:** Enter a measurement and receive a risk prediction, SHAP explanation, calibrated prediction set, and OOD status.
@@ -176,7 +178,11 @@ No paid APIs or proprietary services are required.
 5. **Cross-Region Evaluation:** Examine missingness patterns, OOD flags, and EU–Bangladesh domain-shift results.
 6. **Data and Methodology:** Review training data, evaluation design, model details, and limitations.
 
-## Data and methodology
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:12B886,50:2E9BFF,100:0B5FFF&height=3&width=1200" width="100%" alt="divider" />
+</p>
+
+## 📊 Data and methodology
 
 ### Training data
 
@@ -202,7 +208,7 @@ The one-year-ahead forecast uses walk-forward validation. The model is trained o
 
 Conformal calibration is evaluated under the missingness pattern observed in Bangladesh. OOD detection uses nearest-neighbour distance in feature space to identify inputs that differ from the European training data.
 
-## Evaluation at a glance
+## 📈 Evaluation at a glance
 
 The following results are reported by the executed analysis notebook:
 
@@ -228,7 +234,7 @@ The Bangladesh evaluation demonstrates a substantial difference between the trai
 
 </details>
 
-## Limitations
+## ⚠️ Limitations
 
 AquaSentinel is a prototype screening and prioritization tool. It does not replace laboratory testing, regulatory assessment, or field inspection.
 
@@ -239,7 +245,11 @@ AquaSentinel is a prototype screening and prioritization tool. It does not repla
 - The two non-flagged Bangladesh observations coincide with a period of dissolved-oxygen recovery toward the European training range. This pattern is not an independent causal validation of the detector.
 - Citizen reports are contextual observations and are not treated as laboratory measurements.
 
-## Run locally
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:0B5FFF,50:2E9BFF,100:12B886&height=3&width=1200" width="100%" alt="divider" />
+</p>
+
+## 💻 Run locally
 
 ### Backend
 
@@ -273,7 +283,7 @@ The trained models and derived data files are included for running the applicati
 notebook/AquaSentinel_notebook.ipynb
 ```
 
-## Project structure
+## 📁 Project structure
 
 ```text
 AquaSentinel/
@@ -290,7 +300,7 @@ AquaSentinel/
         └── components/
 ```
 
-## API reference
+## 🔌 API reference
 
 | Endpoint | Method | Description |
 |---|---|---|
@@ -305,13 +315,13 @@ AquaSentinel/
 
 The complete endpoint list is available in `backend/app.py`.
 
-## Data sources and acknowledgments
+## 🙏 Data sources and acknowledgments
 
 - European Environment Agency, Waterbase WISE-6 Water Quality dataset [1]
 - Bangladesh Department of Environment, *River Water Quality Report* for 2015, 2021, 2022, and 2023
 - OneAquaHealth IEEE Global Hackathon 2026, Challenge Track 6: Resilience Informatics
 
-## References
+## 📚 References
 
 [1]: https://www.eea.europa.eu/en/datahub/datahubitem-view/fbf3717c-cd7b-4785-933a-d0cf510542e1 "European Environment Agency Waterbase WISE-6 Water Quality dataset"
 
@@ -323,4 +333,10 @@ The complete endpoint list is available in `backend/app.py`.
 
 *Final decisions should be based on laboratory measurements, field inspection, and the relevant regulatory framework.*
 
+<sub>[⬆ Back to top](#top)</sub>
+
 </div>
+
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:12B886,50:2E9BFF,100:0B5FFF&height=120&section=footer&animation=fadeIn" width="100%" alt="AquaSentinel footer" />
+</p>
