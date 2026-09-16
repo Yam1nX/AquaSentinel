@@ -5,7 +5,7 @@
 
 <div align="center">
 
-# 💧 AquaSentinel
+
 
 <img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=20&duration=2800&pause=900&color=2E9BFF&center=true&vCenter=true&width=680&lines=Predictive+Early-Warning+and+Decision+Support;Detecting+Change+%C2%B7+Explaining+Risk+%C2%B7+Forecasting+Ahead;Prioritizing+Inspection+for+Urban+Stream+Health" alt="Typing SVG" />
 
@@ -25,7 +25,31 @@
 </p>
 
 ## Overview
+<div align="center">
+<img width="2760" height="1960" alt="aquasentinel_project_poster" src="https://github.com/user-attachments/assets/ba9e4e95-aa38-4251-b2ee-a041fecc3e25" />
+<details>
+<summary><strong>Explore the AquaSentinel Interface</strong></summary>
 
+<br/>
+
+| Dashboard | Risk Analysis |
+|:---:|:---:|
+| <img width="1501" height="945" alt="1a" src="https://github.com/user-attachments/assets/4d508d37-5c56-47ff-818c-98dadd46bdf4" /> | <img width="1503" height="950" alt="1b" src="https://github.com/user-attachments/assets/3f6250a6-5cb9-47cd-94b1-850ae5b04c04" /> |
+
+| Inspection Priority | SHAP Explanation |
+|:---:|:---:|
+| <img width="872" height="952" alt="2b" src="https://github.com/user-attachments/assets/16e44d92-5163-4a1e-89bc-9377a04260bc" /> | <img width="1501" height="956" alt="2c" src="https://github.com/user-attachments/assets/674bb655-3bec-40fe-a9b1-11e2f731f805" /> |
+
+| Bangladesh Demo | Forecasting |
+|:---:|:---:|
+| <img width="1505" height="949" alt="3a" src="https://github.com/user-attachments/assets/e82308c6-ced1-4d05-91c3-62b2ce66e17e" /> | <img width="1498" height="955" alt="3b" src="https://github.com/user-attachments/assets/3772f5b9-a88e-482c-a877-480eb42ec01d" /> |
+
+| Cross-Region Evaluation | Data & Methodology |
+|:---:|:---:|
+| <img width="951" height="949" alt="4" src="https://github.com/user-attachments/assets/1f7d3ac9-b5b7-4e78-a2f2-594b7ee26b90" /> | <img width="874" height="942" alt="5" src="https://github.com/user-attachments/assets/c63f4219-080e-4343-938e-0beaa769ac28" /> |
+</div>
+
+</details>
 AquaSentinel is a full-stack water-quality monitoring and decision-support prototype for urban rivers. It combines a Random Forest classifier with one-year-ahead forecasting, SHAP explanations, out-of-distribution detection, and missingness-matched conformal prediction.
 
 The model-development dataset is drawn from the European Environment Agency Waterbase. External evaluation uses observations from the Bangladesh Department of Environment for the **Buriganga** and **Turag** rivers. The application is designed for environmental agencies that need to identify deteriorating stations and prioritize follow-up inspections under limited monitoring capacity.
@@ -49,8 +73,6 @@ AquaSentinel brings these questions into one workflow:
 | Where should an agency inspect first? | Inspection Priority ranking |
 | Is the input unlike the training data? | k-nearest-neighbour OOD detector |
 | How should uncertainty change with missing data? | Missingness-matched conformal prediction |
-
-## Contents
 
 [Challenge](#challenge-track) │ [Contributions](#main-contributions) │ [Overview](#application-overview) │ [One Health](#one-health-connection) │ [Architecture](#architecture) │ [Workflow](#user-workflow) │ [Methodology](#data-and-methodology) │ [Evaluation](#evaluation-at-a-glance) │ [Limitations](#limitations) │ [Setup](#run-locally) │ [Sources](#data-sources-and-acknowledgments)
 
