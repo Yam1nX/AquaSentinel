@@ -1,0 +1,21 @@
+{
+  "param_cols": [
+    "pH",
+    "Dissolved oxygen",
+    "BOD5",
+    "Ammonium",
+    "Nitrate",
+    "Nitrite",
+    "Total phosphorus",
+    "Water temperature",
+    "Electrical conductivity"
+  ],
+  "classes": [
+    "High",
+    "Low",
+    "Medium"
+  ],
+  "model_type": "RandomForestClassifier",
+  "trained_on": "EEA Waterbase (WISE-6), river water, 2010-2024, 6 EU countries",
+  "risk_rule": "DO<4:+2/<6:+1 | BOD5>6:+2/>3:+1 | NH4>1:+2/>0.5:+1 | NO3>25:+1 | TP>0.1:+1 | pH outside 6.5-8.5:+1"
+}

@@ -1,0 +1,169 @@
+{
+ "rows_raw": 36298,
+ "flagged": {
+  "negative_value": 6,
+  "outside_plausible_range": 2
+ },
+ "flagged_detail": [
+  [
+   "DoE_SurfaceGroundWaterReport_2021_2023",
+   "Jamuna",
+   "Jamuna Eco Park (DN)",
+   "2021-10-01",
+   "Dissolved oxygen",
+   "77.6",
+   "outside_plausible_range"
+  ],
+  [
+   "DoE_SurfaceGroundWaterReport_2021_2023",
+   "Teesta",
+   "Teesta Bridge (Dn)",
+   "2021-12-01",
+   "pH",
+   "79.0",
+   "outside_plausible_range"
+  ],
+  [
+   "REACH-Dhaka_2017-2021",
+   "Tongi Khal",
+   "d/s Ashulia Landing station",
+   "2017-06-18",
+   "COD",
+   "-59.0",
+   "negative_value"
+  ],
+  [
+   "REACH-Dhaka_2017-2021",
+   "Tongi Khal",
+   "u/s Ijtema Field",
+   "2017-06-18",
+   "COD",
+   "-22.0",
+   "negative_value"
+  ],
+  [
+   "REACH-Dhaka_2017-2021",
+   "Tongi Khal",
+   "d/s Railway Bridge",
+   "2017-06-18",
+   "COD",
+   "-16.0",
+   "negative_value"
+  ],
+  [
+   "REACH-Dhaka_2017-2021",
+   "Tongi Khal",
+   "Mausaid (d/s Pagar Canal)",
+   "2017-06-18",
+   "COD",
+   "-44.0",
+   "negative_value"
+  ],
+  [
+   "REACH-Dhaka_2017-2021",
+   "Balu",
+   "d/s of Purbachal (Ichhapur bridge)",
+   "2017-06-18",
+   "COD",
+   "-7.0",
+   "negative_value"
+  ],
+  [
+   "REACH-Dhaka_2017-2021",
+   "Balu",
+   "Demra (u/s of confluence)",
+   "2017-06-18",
+   "COD",
+   "-8.0",
+   "negative_value"
+  ]
+ ],
+ "station_months": 4106,
+ "by_source": {
+  "DoE_RiverWaterQualityReport_2015_TrendCh6": {
+   "station_months": 36,
+   "rivers": 3,
+   "stations": 6,
+   "years": [
+    2010,
+    2015
+   ]
+  },
+  "DoE_SurfaceGroundWaterReport_2021_2023": {
+   "station_months": 2575,
+   "rivers": 33,
+   "stations": 213,
+   "years": [
+    2021,
+    2023
+   ]
+  },
+  "REACH-Dhaka_2017-2021": {
+   "station_months": 1495,
+   "rivers": 12,
+   "stations": 58,
+   "years": [
+    2017,
+    2021
+   ]
+  }
+ },
+ "parameter_coverage_by_source": {
+  "DoE_RiverWaterQualityReport_2015_TrendCh6": {
+   "Ammonium": 0,
+   "BOD5": 36,
+   "COD": 0,
+   "Chloride": 0,
+   "Dissolved oxygen": 36,
+   "E_coli": 0,
+   "Electrical conductivity": 0,
+   "Nitrate": 0,
+   "Salinity": 0,
+   "Suspended solids": 0,
+   "TDS": 0,
+   "Total alkalinity": 0,
+   "Turbidity": 0,
+   "Water temperature": 0,
+   "pH": 36
+  },
+  "DoE_SurfaceGroundWaterReport_2021_2023": {
+   "Ammonium": 0,
+   "BOD5": 2085,
+   "COD": 1190,
+   "Chloride": 1498,
+   "Dissolved oxygen": 2330,
+   "E_coli": 0,
+   "Electrical conductivity": 1798,
+   "Nitrate": 0,
+   "Salinity": 250,
+   "Suspended solids": 1752,
+   "TDS": 2205,
+   "Total alkalinity": 715,
+   "Turbidity": 789,
+   "Water temperature": 0,
+   "pH": 2334
+  },
+  "REACH-Dhaka_2017-2021": {
+   "Ammonium": 1433,
+   "BOD5": 0,
+   "COD": 189,
+   "Chloride": 1423,
+   "Dissolved oxygen": 1495,
+   "E_coli": 1049,
+   "Electrical conductivity": 1495,
+   "Nitrate": 1464,
+   "Salinity": 0,
+   "Suspended solids": 1486,
+   "TDS": 1495,
+   "Total alkalinity": 1467,
+   "Turbidity": 1495,
+   "Water temperature": 1495,
+   "pH": 1495
+  }
+ },
+ "missing_from_master": [
+  "Phosphate/PO4 (present in REACH workbook)",
+  "Total coliform (present in REACH workbook)",
+  "Metals (Pb, Cr, Hg)"
+ ]
+}

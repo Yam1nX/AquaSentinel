@@ -1,0 +1,215 @@
+{
+ "n_station_months": 2070,
+ "n_rivers": 28,
+ "n_stations": 176,
+ "years": [
+  2021,
+  2022,
+  2023
+ ],
+ "lb_class_share": {
+  "Low": 0.43,
+  "Medium": 0.3676,
+  "High": 0.2024
+ },
+ "interval_singleton_share": 0.2024,
+ "guaranteed_high_share": 0.2024,
+ "model_pred_share": {
+  "Low": 0.457,
+  "Medium": 0.543,
+  "High": 0.0
+ },
+ "model_violates_lower_bound_share": 0.2295,
+ "model_violates_among_guaranteed_high": 1.0,
+ "projected_matches_lower_bound_share": 1.0,
+ "ood_flag_share": 0.2459,
+ "ood_median_multiple_of_threshold": 0.4,
+ "ood_dist_pctl_vs_thr": {
+  "5": 0.15,
+  "25": 0.23,
+  "50": 0.4,
+  "75": 0.98,
+  "95": 4.36
+ },
+ "by_river": [
+  {
+   "river": "Jamuna",
+   "n": 237.0,
+   "guaranteed_high": 0.0,
+   "model_violates": 0.004,
+   "ood": 0.004
+  },
+  {
+   "river": "Buriganga",
+   "n": 198.0,
+   "guaranteed_high": 0.621,
+   "model_violates": 0.636,
+   "ood": 0.631
+  },
+  {
+   "river": "Karnaphuli",
+   "n": 193.0,
+   "guaranteed_high": 0.0,
+   "model_violates": 0.0,
+   "ood": 0.207
+  },
+  {
+   "river": "Turag",
+   "n": 147.0,
+   "guaranteed_high": 0.388,
+   "model_violates": 0.408,
+   "ood": 0.354
+  },
+  {
+   "river": "Teesta",
+   "n": 132.0,
+   "guaranteed_high": 0.0,
+   "model_violates": 0.0,
+   "ood": 0.015
+  },
+  {
+   "river": "Shitalakhya",
+   "n": 112.0,
+   "guaranteed_high": 0.464,
+   "model_violates": 0.482,
+   "ood": 0.375
+  },
+  {
+   "river": "Korotoa",
+   "n": 110.0,
+   "guaranteed_high": 0.164,
+   "model_violates": 0.164,
+   "ood": 0.0
+  },
+  {
+   "river": "Halda",
+   "n": 102.0,
+   "guaranteed_high": 0.0,
+   "model_violates": 0.02,
+   "ood": 0.0
+  },
+  {
+   "river": "Meghna",
+   "n": 100.0,
+   "guaranteed_high": 0.11,
+   "model_violates": 0.19,
+   "ood": 0.13
+  },
+  {
+   "river": "Dhaleshwari",
+   "n": 99.0,
+   "guaranteed_high": 0.222,
+   "model_violates": 0.222,
+   "ood": 0.192
+  },
+  {
+   "river": "Ganges",
+   "n": 59.0,
+   "guaranteed_high": 0.0,
+   "model_violates": 0.0,
+   "ood": 0.0
+  },
+  {
+   "river": "Balu",
+   "n": 58.0,
+   "guaranteed_high": 0.741,
+   "model_violates": 0.759,
+   "ood": 0.776
+  },
+  {
+   "river": "Rupsa",
+   "n": 58.0,
+   "guaranteed_high": 0.052,
+   "model_violates": 0.138,
+   "ood": 0.31
+  },
+  {
+   "river": "Bhairab",
+   "n": 58.0,
+   "guaranteed_high": 0.121,
+   "model_violates": 0.224,
+   "ood": 0.328
+  },
+  {
+   "river": "Dhanmondi Lake",
+   "n": 55.0,
+   "guaranteed_high": 0.091,
+   "model_violates": 0.182,
+   "ood": 0.073
+  }
+ ],
+ "by_season": [
+  {
+   "season": "dry",
+   "n": 1079.0,
+   "guaranteed_high": 0.256,
+   "model_violates": 0.286,
+   "ood": 0.293
+  },
+  {
+   "season": "wet",
+   "n": 991.0,
+   "guaranteed_high": 0.144,
+   "model_violates": 0.168,
+   "ood": 0.195
+  }
+ ],
+ "by_year": [
+  {
+   "year": 2021,
+   "n": 764.0,
+   "guaranteed_high": 0.234,
+   "model_violates": 0.249
+  },
+  {
+   "year": 2022,
+   "n": 559.0,
+   "guaranteed_high": 0.22,
+   "model_violates": 0.229
+  },
+  {
+   "year": 2023,
+   "n": 747.0,
+   "guaranteed_high": 0.157,
+   "model_violates": 0.21
+  }
+ ],
+ "ood_auroc_for_lower_bound_violation": 0.895,
+ "note": "Parameters reported by DoE and used: pH, DO, BOD5, EC. Ammonium, Nitrate, Nitrite, Total P, temperature are not reported and are median-imputed for the model; bounds assume up to +4 points from the unreported scored parameters (NH4 2, NO3 1, TP 1). Two source typos (DO 77.6, pH 79) treated as missing.",
+ "with_regional_prior": {
+  "domain_rivers": [
+   "Balu",
+   "Buriganga",
+   "Dhaleshwari",
+   "Kaligonga",
+   "Shitalakhya",
+   "Turag"
+  ],
+  "n_station_months_in_domain": 629,
+  "prior_class_share": {
+   "Low": 0.0461,
+   "Medium": 0.2035,
+   "High": 0.7504
+  },
+  "naive_model_class_share_same_rows": {
+   "Low": 0.1463,
+   "Medium": 0.8537,
+   "High": 0.0
+  },
+  "provable_lower_bound_share_same_rows": {
+   "Low": 0.132,
+   "Medium": 0.3959,
+   "High": 0.4722
+  },
+  "prior_higher_than_naive_model_share": 0.8378,
+  "by_river_prior_High_share": {
+   "Balu": 0.948,
+   "Buriganga": 0.934,
+   "Dhaleshwari": 0.434,
+   "Kaligonga": 0.133,
+   "Shitalakhya": 0.786,
+   "Turag": 0.673
+  },
+  "caveat": "Class-level accuracy cannot be verified: DoE has no nutrient measurements. The prior is validated only at the points level on REACH-Dhaka (see reach_prior_meta.json). Not applied outside Dhaka-region rivers."
+ }
+}

@@ -1,0 +1,7 @@
+river,year,season,pH,DO,BOD,source,verification
+Buriganga,2016,Dry,7.54,0.17,17.09,DoE Surface and Ground Water Quality Report 2016 Table-52,read from page image
+Buriganga,2016,Wet,7.05,2.98,6.53,DoE Surface and Ground Water Quality Report 2016 Table-52,read from page image
+Shitalakhya,2016,Dry,7.26,4.25,19.99,DoE Surface and Ground Water Quality Report 2016 Table-53,OCR only - verify
+Shitalakhya,2016,Wet,7.22,4.14,5.49,DoE Surface and Ground Water Quality Report 2016 Table-53,OCR only - verify
+Turag,2016,Dry,7.18,0.40,30.48,DoE Surface and Ground Water Quality Report 2016 Table-54,OCR only - verify
+Turag,2016,Wet,7.31,4.51,4.84,DoE Surface and Ground Water Quality Report 2016 Table-54,OCR only - verify

@@ -1,0 +1,16 @@
+{
+  "source": "Bangladesh Gazette (Extra), 5 March 2023 - Environment Conservation Rules 2023, Schedule-2 (Water quality standards), (A) Surface water, (1) Inland surface water",
+  "transcription_status": "TRANSCRIBED BY READING THE PAGE IMAGE (page 53 of the supplied PDF). Verify every number against the gazette before citing.",
+  "units": "mg/L unless stated; fecal coliform in CFU/100 mL",
+  "columns": ["pH","DO","BOD","NO3_N","NH4_N","PO4_P","Total_Cr","Pb","Hg","Fecal_coliform","TDS","COD"],
+  "classes": {
+    "1_drinking_source_after_disinfection_only": {"pH":"6.5-8.5","DO":">=6","BOD":"<=2","NO3_N":7.0,"NH4_N":0.1,"PO4_P":0.1,"Total_Cr":0.02,"Pb":0.03,"Hg":0.001,"Fecal_coliform":"<=100","TDS":1000,"COD":10},
+    "2_recreation":                              {"pH":"6.5-8.5","DO":">=5","BOD":"<=3","NO3_N":7.0,"NH4_N":0.3,"PO4_P":0.5,"Total_Cr":0.2,"Pb":0.05,"Hg":0.001,"Fecal_coliform":"<=50","TDS":1000,"COD":10},
+    "3_drinking_source_conventional_treatment":  {"pH":"6-9","DO":">=5","BOD":"<=3","NO3_N":7.0,"NH4_N":0.3,"PO4_P":0.5,"Total_Cr":0.02,"Pb":0.03,"Hg":0.001,"Fecal_coliform":"<=5000","TDS":1000,"COD":25},
+    "4_fisheries":                               {"pH":"6-9","DO":">=5","BOD":"<=6","NO3_N":7.0,"NH4_N":0.3,"PO4_P":0.5,"Total_Cr":0.05,"Pb":0.1,"Hg":0.008,"Fecal_coliform":"<=5000","TDS":1000,"COD":50},
+    "5_industrial_incl_cooling":                 {"pH":"6.5-8.5","DO":">=1","BOD":12,"NO3_N":null,"NH4_N":2.7,"PO4_P":null,"Total_Cr":0.1,"Pb":0.1,"Hg":0.05,"Fecal_coliform":null,"TDS":1000,"COD":100},
+    "6_irrigation":                              {"pH":"6.5-8.5","DO":null,"BOD":"<=12","NO3_N":5.0,"NH4_N":1.5,"PO4_P":2.0,"Total_Cr":0.1,"Pb":0.1,"Hg":0.002,"Fecal_coliform":"<=50000","TDS":1000,"COD":100}
+  },
+  "parameters_reported_in_DoE_river_tables_2021_2023": ["pH","DO","BOD","COD","TDS"],
+  "parameters_required_by_schedule_but_not_reported": ["NO3_N","NH4_N","PO4_P","Total_Cr","Pb","Hg","Fecal_coliform"]
+}

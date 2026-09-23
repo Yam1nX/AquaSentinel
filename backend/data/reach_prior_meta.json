@@ -1,0 +1,42 @@
+{
+ "features": [
+  "DO",
+  "pH",
+  "EC"
+ ],
+ "n": 1397,
+ "leave_location_out": {
+  "MAE": 0.346,
+  "bias": -0.026,
+  "within_1": 0.962,
+  "const_MAE": 0.838
+ },
+ "leave_river_out": {
+  "MAE": 0.361,
+  "bias": -0.02,
+  "within_1": 0.955,
+  "const_MAE": 0.838
+ },
+ "leave_year_out": {
+  "MAE": 0.429,
+  "bias": 0.015,
+  "within_1": 0.93,
+  "const_MAE": 0.838
+ },
+ "leave_location_out_with_temp_turbidity": {
+  "MAE": 0.341,
+  "bias": -0.022,
+  "within_1": 0.966,
+  "const_MAE": 0.838
+ },
+ "oof_residual_quantiles": {
+  "q10": -0.73,
+  "q90": 0.86
+ },
+ "fallback_DO_pH_only_leave_location_out": {
+  "n": 1397,
+  "MAE": 0.372,
+  "within_1": 0.956
+ },
+ "domain": "Dhaka-region rivers and canals (REACH-Dhaka 2017-2021); do not apply outside comparable industrial-urban rivers"
+}

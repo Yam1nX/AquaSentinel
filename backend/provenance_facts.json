@@ -1,0 +1,109 @@
+{
+  "data_source": "EEA Waterbase (WISE-6) Water Quality dataset, European Environment Agency",
+  "data_source_url": "https://www.eea.europa.eu/en/datahub/datahubitem-view/fbf3717c-cd7b-4785-933a-d0cf510542e1",
+  "filtered_to": "river monitoring stations, annual aggregates, 2010-2024, 6 EU countries",
+  "raw_source_files": "T_WISE6_AggregatedData.csv + S_WISE6_SpatialObject_DerivedData.csv (EEA raw export)",
+  "n_observations_rows": 40638,
+  "n_monitoring_stations": 8762,
+  "n_countries": 6,
+  "countries": [
+    "AT",
+    "CZ",
+    "DE",
+    "ES",
+    "FR",
+    "IT"
+  ],
+  "year_range": [
+    2010,
+    2024
+  ],
+  "parameters": [
+    "pH",
+    "Dissolved oxygen",
+    "BOD5",
+    "Ammonium",
+    "Nitrate",
+    "Nitrite",
+    "Total phosphorus",
+    "Water temperature",
+    "Electrical conductivity"
+  ],
+  "missing_pct_by_parameter": {
+    "pH": 21.5,
+    "Dissolved oxygen": 27.2,
+    "BOD5": 20.5,
+    "Ammonium": 3.2,
+    "Nitrate": 2.8,
+    "Nitrite": 33.5,
+    "Total phosphorus": 27.9,
+    "Water temperature": 17.9,
+    "Electrical conductivity": 36.5
+  },
+  "risk_label_method": "rule-based, derived from cited regulatory/scientific freshwater-quality thresholds (Section 4): DO/BOD5/Ammonium/pH from EU Directive 2006/44/EC (repealed 2013, consolidated into WFD 2000/60/EC -- cited as literature reference values, not current binding law); Nitrate set at half the EU Nitrates Directive 91/676/EEC (still in force) 50 mg/L threshold; Total Phosphorus from cross-jurisdictionally corroborated eutrophication literature (US EPA 1986, CONAMA 357/2005). Full citations in notebook Section 4. Still a prototype screening rule, not a current official regulatory classification for any specific jurisdiction.",
+  "bangladesh_data": {
+    "source": "Bangladesh DoE River/Surface & Ground Water Quality Reports (2010-2023, government monthly monitoring) merged with the REACH-Dhaka field dataset (Univ. of Oxford REACH programme, 2017-2021); DoE Surface & Ground Water Quality Report 2016's own Chapter 6 trend table closes the earlier 2016 reporting gap for Buriganga/Turag/Shitalakhya and the Bangladesh Environment Conservation Rules, 2023 (Gazette, 5 Mar 2023) for regulatory thresholds",
+    "coverage": "40 rivers/canals, station-month granularity, 2010-2023 (own merged raw dataset)",
+    "observations": "36,316 raw rows -> powered evaluation uses 2,070 station-months across 28 rivers, 176 stations (2021-2023)",
+    "rivers_focus": [
+      "Buriganga",
+      "Turag",
+      "Shitalakhya"
+    ],
+    "years": "2010-2015, 2017-2023 (2016 is a genuine reporting gap)",
+    "parameters": [
+      "pH",
+      "Dissolved oxygen",
+      "BOD5",
+      "Ammonium",
+      "Nitrate",
+      "COD",
+      "Chloride",
+      "TDS",
+      "Turbidity",
+      "Total alkalinity",
+      "Electrical conductivity",
+      "E. coli",
+      "Salinity"
+    ],
+    "type": "real government + university field measurements, never simulated -- see /api/master/summary and /api/bangladesh/doe_eval for the full breakdown",
+    "usage": "independent external stress-testing and regulatory compliance-checking only -- never used to train the EU classifier",
+    "attribution": [
+      "Bangladesh Department of Environment (DoE) -- River Water Quality Reports 2010/2013/2015/2016 and Surface & Ground Water Quality Reports 2021-2023. Used per DoE's own usage note: 'freely for study, research and training purposes subject to acknowledgement of the source.'",
+      "REACH: Improving water security for the poor, University of Oxford (UK-aid/FCDO funded) -- Greater Dhaka watershed water quality dataset, 58 sampling points, 2017-2021. Creators: Hossain, M.A., Shawal, S. et al. See reachwater.uk/datasets -- cite the dataset DOI directly, do not redistribute the raw workbook without checking its stated license.",
+      "Bangladesh Gazette, Additional Issue, 5 March 2023 -- Environment Conservation Rules 2023 (পরিবেশ সংরক্ষণ বিধিমালা, ২০২৩), Schedule-2. Threshold values transcribed from the gazette image; verify before citing as binding law."
+    ],
+    "single_point_sites": {
+      "source": "manually compiled from published field studies of the Buriganga and Turag rivers (Dhaka, Bangladesh)",
+      "n_sites": 3,
+      "type": "single-point-in-time field observations, not a downloadable raw dataset, not a time series"
+    },
+    "multi_year_river_history": {
+      "rivers": [
+        "Buriganga",
+        "Turag",
+        "Shitalakhya"
+      ],
+      "n_river_year_entries": 41,
+      "n_underlying_raw_observations": 13976,
+      "data_gap_years": {
+        "buriganga": [],
+        "turag": [],
+        "shitalakhya": [
+          2017
+        ]
+      }
+    },
+    "cross_region_result_summary": {
+      "model_vs_rule_agreement_38_river_years": "8/41 (20%)",
+      "out_of_distribution_flagged_38_river_years": "32/41 (78%)",
+      "powered_28_river_result": {
+        "n_station_months": 2070,
+        "guaranteed_high_share": 0.2024,
+        "model_violates_provable_lower_bound_share": 0.2295,
+        "ood_auroc_for_lower_bound_violation": 0.895
+      },
+      "interpretation": "The model systematically under-predicts risk severity for Bangladesh rivers, and its own out-of-distribution flag is a strong (AUROC 0.895), usable warning sign for exactly the cases where it is wrong -- across both the smaller 3-river annual panel and the larger 28-river, station-month powered evaluation."
+    }
+  }
+}

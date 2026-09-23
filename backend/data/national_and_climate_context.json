@@ -1,0 +1,20 @@
+{
+  "national_monitoring_scale": {
+    "total_named_rivers_streams_canals": 405,
+    "source": "Bangladesh Water Development Board (BWDB), national river/basin inventory (bwdb.gov.bd), retrieved 2026",
+    "doe_actively_monitored_rivers_2021_2023": 33,
+    "share_actively_monitored_pct": 8.1,
+    "note": "The 405-entry BWDB list and DoE's own monitoring-network list are compiled for different purposes (basin/flow inventory vs. water-quality lab sampling) and are not a perfectly like-for-like match, but the order of magnitude is a fair, citable illustration of why an inspection-priority tool matters: Bangladesh's own environmental regulator can put monthly lab sampling on only a small fraction of the country's named rivers."
+  },
+  "coastal_salinity_climate_context": {
+    "source": "Climate Change Cell, Department of Environment (2016), 'Assessment of Sea Level Rise on Bangladesh Coast through Trend Analysis' -- 30-year tidal record (BWDB/BIWTA gauges), Sen's slope + Mann-Kendall significance testing at 95% confidence.",
+    "trend_by_region_mm_per_year": {
+      "ganges_tidal_floodplain_western_coastal_region": "7-8",
+      "meghna_estuarine_floodplain_central_coastal_region": "6-10",
+      "chittagong_coastal_plain_eastern_coastal_region": "11-21",
+      "overall_coastal_zone_30yr": "6-21"
+    },
+    "relevance_to_aquasentinel_rivers": "Pashur, Rupsha, and Kakshiali -- three of the rivers in AquaSentinel's merged Bangladesh dataset with the most extreme observed salinity/chloride -- sit in the Ganges Tidal Floodplain (Western Coastal Region), the zone this DoE study measured at 7-8 mm/year sea-level rise. DoE's own River Water Quality Report 2015 recorded chloride up to 12,692 mg/l (Pashur), 10,082 mg/l (Rupsha) and 13,124 mg/l (Kakshiali) against an EQS limit of 600 mg/l.",
+    "caveat": "This is documented regional climate context from an independent DoE study, presented alongside the salinity readings -- it is NOT a new regression or causal estimate fitted by AquaSentinel; the available salinity time series for these rivers (2015 monthly + sparse 2021-2023 averages) is too short to responsibly fit its own trend line."
+  }
+}

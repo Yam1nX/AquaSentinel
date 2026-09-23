@@ -1,0 +1,210 @@
+{
+ "n_samples": 1397,
+ "n_locations": 58,
+ "n_rivers": 12,
+ "years": [
+  2017,
+  2021
+ ],
+ "extra_points_from_unmeasured_nutrients": {
+  "mean": 2.22,
+  "median": 3.0,
+  "share_ge2": 0.686,
+  "share_ge3": 0.543,
+  "distribution": {
+   "0": 0.037,
+   "1": 0.277,
+   "2": 0.144,
+   "3": 0.513,
+   "4": 0.03
+  }
+ },
+ "eu_median_imputation_implied_nutrient_points": 0,
+ "share_where_nutrients_would_raise_risk_class": {
+  "if_BOD_adds_0": 0.809,
+  "if_BOD_adds_1": 0.832,
+  "if_BOD_adds_2": 0.197
+ },
+ "exceedance_share": {
+  "DO_below_5": 0.816,
+  "NH4N_above_0.3": 0.774,
+  "NH4N_above_1.0": 0.546,
+  "PO4P_above_0.5": 0.576,
+  "NO3N_above_7.0": 0.048,
+  "Ecoli_above_5000_per_100mL": 0.607,
+  "n_ecoli": 1049
+ },
+ "field_probe_recovery_leave_location_out": {
+  "features": [
+   "DO",
+   "pH",
+   "EC",
+   "temp_c",
+   "turbidity"
+  ],
+  "n": 1397,
+  "eu_median_imputation": {
+   "MAE_points": 2.223,
+   "bias_points": -2.223,
+   "exact": 0.037,
+   "within_1": 0.314
+  },
+  "regional_constant_median": {
+   "MAE_points": 0.838,
+   "bias_points": 0.777,
+   "exact": 0.513,
+   "within_1": 0.686
+  },
+  "field_probe_random_forest": {
+   "MAE_points": 0.341,
+   "bias_points": -0.022,
+   "exact": 0.693,
+   "within_1": 0.966
+  }
+ },
+ "cross_source_DO_medians": [
+  {
+   "river": "Buriganga",
+   "season": "dry",
+   "REACH_2017_2021_median_DO": 0.16,
+   "n_reach": 159,
+   "DoE_2021_2023_median_DO": 0.7,
+   "n_doe": 109
+  },
+  {
+   "river": "Buriganga",
+   "season": "wet",
+   "REACH_2017_2021_median_DO": 2.47,
+   "n_reach": 145,
+   "DoE_2021_2023_median_DO": 4.21,
+   "n_doe": 99
+  },
+  {
+   "river": "Turag",
+   "season": "dry",
+   "REACH_2017_2021_median_DO": 0.26,
+   "n_reach": 132,
+   "DoE_2021_2023_median_DO": 1.8,
+   "n_doe": 75
+  },
+  {
+   "river": "Turag",
+   "season": "wet",
+   "REACH_2017_2021_median_DO": 5.47,
+   "n_reach": 175,
+   "DoE_2021_2023_median_DO": 5.5,
+   "n_doe": 72
+  },
+  {
+   "river": "Balu",
+   "season": "dry",
+   "REACH_2017_2021_median_DO": 0.24,
+   "n_reach": 105,
+   "DoE_2021_2023_median_DO": 0.65,
+   "n_doe": 32
+  },
+  {
+   "river": "Balu",
+   "season": "wet",
+   "REACH_2017_2021_median_DO": 1.38,
+   "n_reach": 121,
+   "DoE_2021_2023_median_DO": 2.15,
+   "n_doe": 26
+  },
+  {
+   "river": "Shitalakhya",
+   "season": "dry",
+   "REACH_2017_2021_median_DO": 0.49,
+   "n_reach": 53,
+   "DoE_2021_2023_median_DO": 3.2,
+   "n_doe": 57
+  },
+  {
+   "river": "Shitalakhya",
+   "season": "wet",
+   "REACH_2017_2021_median_DO": 3.27,
+   "n_reach": 70,
+   "DoE_2021_2023_median_DO": 3.69,
+   "n_doe": 56
+  },
+  {
+   "river": "Dhaleshwari",
+   "season": "dry",
+   "REACH_2017_2021_median_DO": 2.3,
+   "n_reach": 73,
+   "DoE_2021_2023_median_DO": 5.4,
+   "n_doe": 57
+  },
+  {
+   "river": "Dhaleshwari",
+   "season": "wet",
+   "REACH_2017_2021_median_DO": 5.4,
+   "n_reach": 88,
+   "DoE_2021_2023_median_DO": 5.5,
+   "n_doe": 42
+  }
+ ],
+ "reach_DO_by_year_buriganga_turag": [
+  {
+   "river": "Buriganga",
+   "year": 2017,
+   "median": 0.39,
+   "count": 15
+  },
+  {
+   "river": "Buriganga",
+   "year": 2018,
+   "median": 0.41,
+   "count": 109
+  },
+  {
+   "river": "Buriganga",
+   "year": 2019,
+   "median": 0.09,
+   "count": 108
+  },
+  {
+   "river": "Buriganga",
+   "year": 2020,
+   "median": 1.04,
+   "count": 45
+  },
+  {
+   "river": "Buriganga",
+   "year": 2021,
+   "median": 0.47,
+   "count": 27
+  },
+  {
+   "river": "Turag",
+   "year": 2017,
+   "median": 5.06,
+   "count": 66
+  },
+  {
+   "river": "Turag",
+   "year": 2018,
+   "median": 2.58,
+   "count": 120
+  },
+  {
+   "river": "Turag",
+   "year": 2019,
+   "median": 5.18,
+   "count": 37
+  },
+  {
+   "river": "Turag",
+   "year": 2020,
+   "median": 4.41,
+   "count": 48
+  },
+  {
+   "river": "Turag",
+   "year": 2021,
+   "median": 1.06,
+   "count": 36
+  }
+ ],
+ "note": "REACH has no BOD; nutrient points are computed without BOD. Orthophosphate-P is used as a lower-bound proxy for total P. Ammonia is total ammonia-N (Nessler), nitrate as mg NO3/L, matching the EEA columns used by the rule."
+}

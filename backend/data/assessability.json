@@ -1,0 +1,205 @@
+{
+ "note": "Master dataset has no phosphate, metals or fecal-coliform counts other than E. coli; E. coli above a limit proves fecal coliform above it, below a limit proves nothing. Standards transcribed from the gazette image - verify.",
+ "by_source": {
+  "DoE_SurfaceGroundWaterReport_2021_2023": {
+   "n_station_months": 2575,
+   "schedule_parameters_measured_share": {
+    "pH": 0.906,
+    "DO": 0.905,
+    "BOD": 0.81,
+    "NO3_N": 0.0,
+    "NH4_N": 0.0,
+    "PO4_P": 0.0,
+    "Cr": 0.0,
+    "Pb": 0.0,
+    "Hg": 0.0,
+    "FC": 0.0,
+    "TDS": 0.856,
+    "COD": 0.462
+   },
+   "classes": {
+    "1_drinking_source_disinfection_only": {
+     "label": "Drinking-water source (disinfection only)",
+     "non_compliant": 0.8621,
+     "undetermined": 0.1379,
+     "compliant": 0.0
+    },
+    "2_recreation": {
+     "label": "Recreation",
+     "non_compliant": 0.6559,
+     "undetermined": 0.3441,
+     "compliant": 0.0
+    },
+    "3_drinking_source_conventional": {
+     "label": "Drinking-water source (conventional treatment)",
+     "non_compliant": 0.6117,
+     "undetermined": 0.3883,
+     "compliant": 0.0
+    },
+    "4_fisheries": {
+     "label": "Fisheries",
+     "non_compliant": 0.4835,
+     "undetermined": 0.5165,
+     "compliant": 0.0
+    },
+    "5_industrial_cooling": {
+     "label": "Industrial / cooling",
+     "non_compliant": 0.285,
+     "undetermined": 0.715,
+     "compliant": 0.0
+    },
+    "6_irrigation": {
+     "label": "Irrigation",
+     "non_compliant": 0.2617,
+     "undetermined": 0.7383,
+     "compliant": 0.0
+    }
+   }
+  },
+  "REACH-Dhaka_2017-2021": {
+   "n_station_months": 1495,
+   "schedule_parameters_measured_share": {
+    "pH": 1.0,
+    "DO": 1.0,
+    "BOD": 0.0,
+    "NO3_N": 0.979,
+    "NH4_N": 0.959,
+    "PO4_P": 0.0,
+    "Cr": 0.0,
+    "Pb": 0.0,
+    "Hg": 0.0,
+    "FC": 0.702,
+    "TDS": 1.0,
+    "COD": 0.126
+   },
+   "classes": {
+    "1_drinking_source_disinfection_only": {
+     "label": "Drinking-water source (disinfection only)",
+     "non_compliant": 0.9933,
+     "undetermined": 0.0067,
+     "compliant": 0.0
+    },
+    "2_recreation": {
+     "label": "Recreation",
+     "non_compliant": 0.9739,
+     "undetermined": 0.0261,
+     "compliant": 0.0
+    },
+    "3_drinking_source_conventional": {
+     "label": "Drinking-water source (conventional treatment)",
+     "non_compliant": 0.9304,
+     "undetermined": 0.0696,
+     "compliant": 0.0
+    },
+    "4_fisheries": {
+     "label": "Fisheries",
+     "non_compliant": 0.9304,
+     "undetermined": 0.0696,
+     "compliant": 0.0
+    },
+    "5_industrial_cooling": {
+     "label": "Industrial / cooling",
+     "non_compliant": 0.5679,
+     "undetermined": 0.4321,
+     "compliant": 0.0
+    },
+    "6_irrigation": {
+     "label": "Irrigation",
+     "non_compliant": 0.604,
+     "undetermined": 0.396,
+     "compliant": 0.0
+    }
+   }
+  }
+ },
+ "doe_fisheries_non_compliant_by_river": [
+  {
+   "river": "Buriganga",
+   "n": 271.0,
+   "non_compliant": 0.775
+  },
+  {
+   "river": "Jamuna",
+   "n": 246.0,
+   "non_compliant": 0.037
+  },
+  {
+   "river": "Karnaphuli",
+   "n": 207.0,
+   "non_compliant": 0.449
+  },
+  {
+   "river": "Turag",
+   "n": 147.0,
+   "non_compliant": 0.755
+  },
+  {
+   "river": "Teesta",
+   "n": 132.0,
+   "non_compliant": 0.015
+  },
+  {
+   "river": "Shitalakhya",
+   "n": 113.0,
+   "non_compliant": 0.903
+  },
+  {
+   "river": "Korotoa",
+   "n": 110.0,
+   "non_compliant": 0.764
+  },
+  {
+   "river": "Kirtankhola",
+   "n": 104.0,
+   "non_compliant": 0.279
+  },
+  {
+   "river": "Dhaleshwari",
+   "n": 103.0,
+   "non_compliant": 0.66
+  },
+  {
+   "river": "Halda",
+   "n": 102.0,
+   "non_compliant": 0.382
+  },
+  {
+   "river": "Meghna",
+   "n": 101.0,
+   "non_compliant": 0.436
+  },
+  {
+   "river": "Bhairab",
+   "n": 91.0,
+   "non_compliant": 0.604
+  },
+  {
+   "river": "Gulshan Lake",
+   "n": 87.0,
+   "non_compliant": 0.54
+  },
+  {
+   "river": "Rupsa",
+   "n": 86.0,
+   "non_compliant": 0.453
+  },
+  {
+   "river": "Ganges",
+   "n": 84.0,
+   "non_compliant": 0.071
+  }
+ ],
+ "doe_drivers_of_failure_fisheries": {
+  "DO": 0.284,
+  "BOD": 0.343,
+  "pH": 0.009,
+  "COD": 0.135,
+  "TDS": 0.063
+ },
+ "overall": {
+  "n_station_months": 4070,
+  "share_certifiable_any_class": 0.0,
+  "share_provably_failing_fisheries": 0.6477,
+  "share_provably_failing_drinking_source_conventional": 0.7287
+ }
+}

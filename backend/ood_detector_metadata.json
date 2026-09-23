@@ -1,0 +1,58 @@
+{
+  "means": {
+    "pH": 7.85513710934936,
+    "Dissolved oxygen": 9.555939942025232,
+    "BOD5": 2.737758135737549,
+    "Ammonium": 0.36349268300790916,
+    "Nitrate": 9.870579170271174,
+    "Nitrite": 0.11873539011579422,
+    "Total phosphorus": 0.12293660921196065,
+    "Water temperature": 12.726432142541212,
+    "Electrical conductivity": 541.9962139821996
+  },
+  "stds": {
+    "pH": 0.378812507597201,
+    "Dissolved oxygen": 1.2799529614452154,
+    "BOD5": 2.1064899919431093,
+    "Ammonium": 1.292382532835301,
+    "Nitrate": 10.089920509110954,
+    "Nitrite": 0.277503699694625,
+    "Total phosphorus": 0.2016759284952744,
+    "Water temperature": 2.8520154734602854,
+    "Electrical conductivity": 671.6389804472126
+  },
+  "threshold_99th_percentile": 2.1213205857570903,
+  "param_cols": [
+    "pH",
+    "Dissolved oxygen",
+    "BOD5",
+    "Ammonium",
+    "Nitrate",
+    "Nitrite",
+    "Total phosphorus",
+    "Water temperature",
+    "Electrical conductivity"
+  ],
+  "methodology": "k-NN (k=1) distance in the z-scored, median-imputed 9-parameter feature space used by the classifier itself. Threshold = 99th percentile of each EU training point's leave-one-out distance to its own nearest neighbor. A query point whose nearest-neighbor distance exceeds this threshold is flagged as outside the model's trained experience.",
+  "calibration_sanity_check_pct_within_threshold": 99.0,
+  "bangladesh_stress_test": [
+    {
+      "site": "Buriganga - Hazaribagh (tannery zone, dry season)",
+      "nearest_neighbor_distance": 35.23,
+      "multiples_of_threshold": 16.6,
+      "is_out_of_distribution": true
+    },
+    {
+      "site": "Buriganga - Postogola",
+      "nearest_neighbor_distance": 15.11,
+      "multiples_of_threshold": 7.1,
+      "is_out_of_distribution": true
+    },
+    {
+      "site": "Turag River - confluence point",
+      "nearest_neighbor_distance": 60.02,
+      "multiples_of_threshold": 28.3,
+      "is_out_of_distribution": true
+    }
+  ]
+}
