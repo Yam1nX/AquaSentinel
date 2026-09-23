@@ -464,9 +464,8 @@ The complete endpoint list is available in `backend/app.py`.
 
 ## References
 
-[1]: https://www.eea.europa.eu/en/datahub/datahubitem-view/fbf3717c-cd7b-4785-933a-d0cf510542e1 "European Environment Agency Waterbase WISE-6 Water Quality dataset"
-[2]: https://reachwater.uk/datasets/ "REACH: Improving water security for the poor — datasets"
-
+1. [European Environment Agency - Waterbase WISE-6 Water Quality dataset](https://www.eea.europa.eu/en/datahub/datahubitem-view/fbf3717c-cd7b-4785-933a-d0cf510542e1)
+2. [REACH - Improving water security for the poor - Datasets](https://reachwater.uk/datasets/)
 ---
 
 <div align="center">
