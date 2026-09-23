@@ -40,13 +40,13 @@
 |:---:|:---:|
 | <img width="872" height="952" alt="2b" src="https://github.com/user-attachments/assets/16e44d92-5163-4a1e-89bc-9377a04260bc" /> | <img width="1916" height="913" alt="Screenshot 2026-09-22 012459" src="https://github.com/user-attachments/assets/8f8fc219-f559-42bd-8db4-e4311d51f634" /> |
 
-| Bangladesh Demo | Forecasting |
+| Dhaka Observatory | Bangladesh Demo |
 |:---:|:---:|
-| <img width="1244" height="806" alt="Screenshot 2026-09-22 012737" src="https://github.com/user-attachments/assets/e7e4da86-9d10-4799-b3d4-983417e7c8da" /> | <img width="1498" height="955" alt="3b" src="https://github.com/user-attachments/assets/3772f5b9-a88e-482c-a877-480eb42ec01d" /> |
+| <img width="1244" height="806" alt="Screenshot 2026-09-22 012737" src="https://github.com/user-attachments/assets/2df2ef5c-df74-4754-9974-742d66651e1b" /> | <img width="1912" height="918" alt="Bangladesh Demo" src="https://github.com/user-attachments/assets/3df81cae-bc3e-4bd8-af48-fe43db27def8" /> |
 
-| Cross-Region Evaluation | Data & Methodology |
+| Legal Compilance | Data & Methodology |
 |:---:|:---:|
-| <img width="951" height="949" alt="4" src="https://github.com/user-attachments/assets/1f7d3ac9-b5b7-4e78-a2f2-594b7ee26b90" /> | <img width="874" height="942" alt="5" src="https://github.com/user-attachments/assets/c63f4219-080e-4343-938e-0beaa769ac28" /> |
+| <img width="1045" height="822" alt="Legal Compilance" src="https://github.com/user-attachments/assets/47def31f-dd45-4ac3-a771-20243e5fad8c" /> | <img width="874" height="942" alt="5" src="https://github.com/user-attachments/assets/c63f4219-080e-4343-938e-0beaa769ac28" /> |
 </div>
 
 </details>
