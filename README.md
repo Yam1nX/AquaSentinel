@@ -38,11 +38,11 @@
 
 | Inspection Priority | SHAP Explanation |
 |:---:|:---:|
-| <img width="872" height="952" alt="2b" src="https://github.com/user-attachments/assets/16e44d92-5163-4a1e-89bc-9377a04260bc" /> | <img width="1501" height="956" alt="2c" src="https://github.com/user-attachments/assets/674bb655-3bec-40fe-a9b1-11e2f731f805" /> |
+| <img width="872" height="952" alt="2b" src="https://github.com/user-attachments/assets/16e44d92-5163-4a1e-89bc-9377a04260bc" /> | <img width="1916" height="913" alt="Screenshot 2026-09-22 012459" src="https://github.com/user-attachments/assets/8f8fc219-f559-42bd-8db4-e4311d51f634" /> |
 
 | Bangladesh Demo | Forecasting |
 |:---:|:---:|
-| <img width="1505" height="949" alt="3a" src="https://github.com/user-attachments/assets/e82308c6-ced1-4d05-91c3-62b2ce66e17e" /> | <img width="1498" height="955" alt="3b" src="https://github.com/user-attachments/assets/3772f5b9-a88e-482c-a877-480eb42ec01d" /> |
+| <img width="1244" height="806" alt="Screenshot 2026-09-22 012737" src="https://github.com/user-attachments/assets/e7e4da86-9d10-4799-b3d4-983417e7c8da" /> | <img width="1498" height="955" alt="3b" src="https://github.com/user-attachments/assets/3772f5b9-a88e-482c-a877-480eb42ec01d" /> |
 
 | Cross-Region Evaluation | Data & Methodology |
 |:---:|:---:|
