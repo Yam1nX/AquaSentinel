@@ -34,7 +34,7 @@
 
 | Dashboard | Risk Analysis |
 |:---:|:---:|
-| <img width="1501" height="945" alt="1a" src="https://github.com/user-attachments/assets/4d508d37-5c56-47ff-818c-98dadd46bdf4" /> | <img width="1503" height="950" alt="1b" src="https://github.com/user-attachments/assets/3f6250a6-5cb9-47cd-94b1-850ae5b04c04" /> |
+| <img width="755" height="872" alt="overview" src="https://github.com/user-attachments/assets/ad44a517-fca9-42a0-8660-3e19c2364625" /> | <img width="1503" height="950" alt="1b" src="https://github.com/user-attachments/assets/3f6250a6-5cb9-47cd-94b1-850ae5b04c04" /> |
 
 | Inspection Priority | SHAP Explanation |
 |:---:|:---:|
