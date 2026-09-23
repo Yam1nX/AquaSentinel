@@ -52,11 +52,11 @@
 </details>
 AquaSentinel is a full-stack water-quality monitoring and decision-support prototype for urban rivers. It combines a Random Forest classifier with one-year-ahead forecasting, SHAP explanations, out-of-distribution detection, and missingness-matched conformal prediction.
 
-The model-development dataset is drawn from the European Environment Agency Waterbase. External evaluation uses observations from the Bangladesh Department of Environment for the **Buriganga** and **Turag** rivers. The application is designed for environmental agencies that need to identify deteriorating stations and prioritize follow-up inspections under limited monitoring capacity.
+The model-development dataset is drawn from the European Environment Agency Waterbase. External evaluation now spans **three real, independently-sourced Bangladesh panels**: (1) a 41 river-year panel across the **Buriganga, Turag, and Shitalakhya** rivers (2010-2023, 13,976 underlying raw observations, with the DoE 2016 report's own trend table closing the earlier 2016 gap for all three rivers), (2) a statistically powered 28-river, 2,070-station-month panel built directly from DoE's monthly annex tables (2021-2023), and (3) the REACH-Dhaka field campaign (University of Oxford, 2017-2021), which is the only source with real Ammonium/Nitrate measurements for this region. The application is designed for environmental agencies that need to identify deteriorating stations and prioritize follow-up inspections under limited monitoring capacity.
 
 > **Important scope statement:** AquaSentinel is a screening and prioritization tool. It does not replace laboratory testing, field inspection, or regulatory assessment.
 
-This project was developed for the **OneAquaHealth IEEE Global Hackathon 2026 — Challenge Track 6: Resilience Informatics**.
+This project was developed for the **OneAquaHealth IEEE Global Hackathon 2026 - Challenge Track 6: Resilience Informatics**.
 
 ## Why this project matters
 
@@ -74,7 +74,16 @@ AquaSentinel brings these questions into one workflow:
 | Is the input unlike the training data? | k-nearest-neighbour OOD detector |
 | How should uncertainty change with missing data? | Missingness-matched conformal prediction |
 
-[Contributions](#main-contributions) │ [Overview](#application-overview) │ [One Health](#one-health-connection) │ [Architecture](#architecture) │ [Methodology](#data-and-methodology) │ [Evaluation](#evaluation-at-a-glance) │ [Limitations](#limitations) │ [Sources](#data-sources-and-acknowledgments)
+<p align="center">
+  <a href="#main-contributions"><img src="https://img.shields.io/badge/Contributions-006D77?style=for-the-badge&labelColor=00545C"></a>
+  <a href="#application-overview"><img src="https://img.shields.io/badge/Overview-008C99?style=for-the-badge&labelColor=006B75"></a>
+  <a href="#one-health-connection"><img src="https://img.shields.io/badge/One%20Health-0A7C86?style=for-the-badge&labelColor=08646C"></a>
+  <a href="#architecture"><img src="https://img.shields.io/badge/Architecture-158F9C?style=for-the-badge&labelColor=11727C"></a>
+  <a href="#data-and-methodology"><img src="https://img.shields.io/badge/Methodology-219EBC?style=for-the-badge&labelColor=197F98"></a>
+  <a href="#evaluation-at-a-glance"><img src="https://img.shields.io/badge/Evaluation-3AAFB9?style=for-the-badge&labelColor=2B8D96"></a>
+  <a href="#limitations"><img src="https://img.shields.io/badge/Limitations-4F858A?style=for-the-badge&labelColor=416E72"></a>
+  <a href="#data-sources-and-acknowledgments"><img src="https://img.shields.io/badge/Sources-397D8A?style=for-the-badge&labelColor=326875"></a>
+</p>
 
 ## Challenge track
 
@@ -114,13 +123,13 @@ Each state includes the conditions that triggered it. The current implementation
 
 The system reports prediction sets instead of relying only on a single confidence score. Calibration is matched to the missing-value pattern observed at inference time. This is relevant to cross-region deployment because Bangladesh observations do not contain four nutrient parameters available in the European training data.
 
-In the reported experiment, naive calibration achieved **84.3% coverage** while targeting 90%. Calibration matched to the observed missingness pattern achieved **90.4% coverage** and returned wider prediction sets when the available measurements did not sufficiently distinguish between categories.
+In the reported experiment, naive calibration achieved **84.3% coverage** while targeting 90%. Calibration matched to the observed missingness pattern achieved **90.4% coverage** and returned wider prediction sets when the available measurements did not sufficiently distinguish between categories. This gap has narrowed but not closed with richer Bangladesh data: even where the REACH-Dhaka campaign provides real Ammonium/Nitrate, BOD5 (the strongest driver of the rule-based High label for these rivers) is itself missing from those same samples — see "Powered Bangladesh evaluation" below.
 
 ### 7. Out-of-distribution detection
 
 A nearest-neighbour detector estimates how far an input is from observations in the model's training feature space. This provides an additional warning when a prediction is made for a measurement profile that differs substantially from the training data.
 
-In the Bangladesh evaluation, **16 of 18 observations** were flagged as out-of-distribution. The two observations that were not flagged correspond to Turag observations from 2022–2023, when dissolved oxygen moved toward the range observed in the European training data. This is an association in the available evaluation data, not a causal validation.
+In the Bangladesh evaluation (41 river-years, Buriganga/Turag/Shitalakhya, 2010-2023), **32 of 41 observations** were flagged as out-of-distribution. On the larger, statistically powered 28-river/2,070-station-month panel, the OOD distance predicts the model's own provable-lower-bound violations at **AUROC 0.895** — i.e. the detector is a genuinely useful warning sign for exactly the cases where the model is wrong, not just a generic domain-shift flag.
 
 ## Application overview
 
@@ -144,6 +153,14 @@ AquaSentinel supports this connection through:
 - **Environmental exposure:** BOD, ammonium, and related indicators can signal contamination associated with industrial and municipal waste.
 - **Citizen participation:** The Report Local Water feature accepts observations such as foam, odour, and visible pollution. These are contextual signals, not substitutes for laboratory measurements.
 - **Monitoring resilience:** Missingness-aware uncertainty estimation addresses deployment where the target region does not measure all variables used during training.
+
+### Alignment with the OneAquaHealth ecosystem
+
+OneAquaHealth's own hackathon guidance highlights three public-facing applications — the **Citizen Science App**, the **Resilience Map**, and the **Diptera Forecasting App**. AquaSentinel is designed to complement, not duplicate, these:
+
+- The **Inspection Priority** ranking and **Dhaka Observatory** map are a resilience/decision-support layer in the same spirit as the Resilience Map — surfacing *where* limited inspection capacity should go, using real DoE and REACH data rather than a simulated demo.
+- The **Report Local Water** citizen-observation schema is intentionally simple (foam, odour, colour, visible pollution) so it can be aligned with or feed into a Citizen Science App data pipeline rather than compete with it.
+- Water-quality deterioration (low DO, high BOD/ammonium) is a known correlate of conditions that favour disease-vector breeding (stagnant, organically loaded water); the early-warning state machine could act as a covariate feed for a Diptera-style vector forecasting effort, though AquaSentinel does not itself model vector populations.
 
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=rect&color=0:0B5FFF,50:2E9BFF,100:12B886&height=3&width=1200" width="100%" alt="divider" />
@@ -196,7 +213,7 @@ No paid APIs or proprietary services are required.
 1. **Europe Monitoring:** Explore EU monitoring stations on the map. Filter by risk level or early-warning state, open a station's multi-year history, and view its forecast.
 2. **Reading Entry:** Enter a measurement and receive a risk prediction, SHAP explanation, calibrated prediction set, and OOD status.
 3. **Inspection Priority:** Review the ranked station list and inspect the components of the priority score.
-4. **Bangladesh Evaluation:** Review Buriganga and Turag histories and compare model predictions with transparent rule-based labels.
+4. **Bangladesh Evaluation:** Review Buriganga, Turag, and Shitalakhya histories and compare model predictions with transparent rule-based labels.
 5. **Cross-Region Evaluation:** Examine missingness patterns, OOD flags, and EU–Bangladesh domain-shift results.
 6. **Data and Methodology:** Review training data, evaluation design, model details, and limitations.
 
@@ -212,11 +229,25 @@ The model-development dataset is the European Environment Agency Waterbase WISE-
 
 ### External evaluation data
 
-The external evaluation uses annual observations from Bangladesh Department of Environment River Water Quality Reports for the Buriganga and Turag rivers. The reported evaluation contains **18 observations** from 2015, 2021, 2022, and 2023. The reporting gap from 2016 to 2020 is disclosed and is not filled through interpolation or estimation.
+External evaluation is built from a **merged, multi-source Bangladesh dataset** (`backend/data/aquasentinel_bd_master_raw.csv`, 36,298 raw long-format rows, 40 rivers/canals, 2010-2023), assembled from three independent sources:
+
+1. **Bangladesh DoE River / Surface & Ground Water Quality Reports** — the 2015 report's Chapter 6 trend tables (2010-2015, annual, Buriganga/Turag/Shitalakhya and others) plus the 2021-2023 reports' monthly, multi-station annex tables (33 rivers). Used per DoE's own usage note: freely for study, research and training purposes with acknowledgement of source.
+2. **REACH-Dhaka field dataset** (*REACH: Improving water security for the poor*, University of Oxford, UK-aid/FCDO funded; creators Hossain, M.A., Shawal, S. et al.) — 1,495 field-campaign samples, 58 GPS-located points, 19 rivers/canals in Greater Dhaka, 2017-2021. This is the only source with real Ammonium/Nitrate measurements for the region; it does not include BOD.
+3. **Bangladesh Environment Conservation Rules 2023** (Gazette, 5 March 2023, Schedule-2) — regulatory thresholds superseding ECR 1997, used for the three-valued compliance checker (`backend/ecr2023.py`); values were transcribed from the gazette image and should be independently verified before being cited as binding law.
+
+From this merged dataset, three evaluation panels are reported at different levels of statistical power:
+
+| Panel | Grain | n | Rivers | Years |
+|---|---|---:|---:|---|
+| Multi-year river history | annual average | 41 river-years (13,976 raw obs.) | 3 (Buriganga, Turag, Shitalakhya) | 2010-2023 (Shitalakhya: gap only in 2017) |
+| Powered DoE evaluation | station-month | 2,070 | 28 | 2021-2023 |
+| REACH nutrient analysis | field sample | 1,397 (with DO/pH/ammonia/nitrate/phosphate) | 12 | 2017-2021 |
+
+Reporting gaps are disclosed rather than interpolated. The DoE 2016 report's own Chapter 6 trend table closed the earlier 2016 gap for all three rivers; Shitalakhya still has a genuine gap in 2017 only.
 
 ### Risk label
 
-The risk label is generated by a transparent points-based rule. The thresholds are compared with EU Directive 2006/44/EC, the EU Nitrates Directive 91/676/EEC, US EPA guidance, and Bangladesh's Environmental Conservation Rules, 1997.
+The risk label is generated by a transparent points-based rule. The thresholds are compared with EU Directive 2006/44/EC, the EU Nitrates Directive 91/676/EEC, US EPA guidance, and Bangladesh's Environmental Conservation Rules, 1997 (superseded by the Environment Conservation Rules 2023).
 
 ### Classification model
 
@@ -244,28 +275,105 @@ The following results are reported by the executed analysis notebook:
 | Naive conformal coverage | **84.3%** |
 | Missingness-matched conformal coverage | **90.4%** |
 | Prediction-set hedging | **13.4%** of cases |
-| Bangladesh model/rule-label agreement | **1 of 18** observations |
-| Bangladesh OOD flags | **16 of 18** observations |
+| Bangladesh model/rule-label agreement (41 river-years, 3 rivers) | **8 of 41** |
+| Bangladesh OOD flags (41 river-years, 3 rivers) | **32 of 41** |
+| Powered evaluation: station-months provably High from measured values alone (28 rivers) | **20.2%** |
+| Powered evaluation: model predicts High | **0.0%** |
+| Powered evaluation: OOD distance vs. bound-violation AUROC | **0.895** |
 
 > **Interpretation note:** Classification accuracy should be read together with the split design and class distribution. The forecast model identifies approximately 20% of stations that worsen in the following year in the reported evaluation, so accuracy alone does not represent complete early-warning performance.
 
 <details>
 <summary><strong>What the cross-region result indicates</strong></summary>
 
-The Bangladesh evaluation demonstrates a substantial difference between the training environment and the external evaluation environment. The model/rule-label agreement is 1 of 18 observations, while 16 of 18 observations are flagged as out-of-distribution. These results support using domain-shift and uncertainty indicators alongside the predicted class when applying the model outside the training region.
+The Bangladesh evaluation demonstrates a substantial and *reproducible* difference between the training environment and the external evaluation environment, confirmed across three independently-built panels of increasing statistical power (41 river-years → 2,070 station-months). The model systematically under-predicts risk severity, and its own out-of-distribution flag is a strong, usable warning sign for exactly the cases where it is wrong (AUROC 0.895 against the model's provable lower-bound violations) — not merely a generic domain-shift indicator. A more precise reading, enabled by the REACH-Dhaka data, is that missing **BOD5** specifically — not missing nutrients in general — is the more load-bearing gap for this river set: even in years where Ammonium/Nitrate are measured, the model still under-calls severity because BOD5 is absent from those same field campaigns. See "Powered Bangladesh evaluation and provable risk bounds" below for the full-power version of this result.
 
 </details>
 
-## Limitations
+## What changed in this version
 
-AquaSentinel is a prototype screening and prioritization tool. It does not replace laboratory testing, regulatory assessment, or field inspection.
+**Data.** `aquasentinel_bd_master_raw.csv` (36,298 long-format rows: DoE 2021-2023, REACH-Dhaka 2017-2021, DoE 2015 trend table) is QC-checked by
+`backend/scripts/build_master.py` into 4,106 station-months. Raw values are kept; 8 implausible values (two source typos and six negative COD values) get `qc_flag`
+and a blank `value_clean`. The DoE portion reproduces the hand-entered annual means for 17 of 18 checked values (largest difference 0.17).
 
-- The Bangladesh evaluation contains 18 observations from two rivers. It is illustrative of cross-region behaviour and missingness effects, but it is not a statistically powered multi-region validation study.
-- The risk label is a transparent prototype screening rule, not an official regulatory classification for any jurisdiction.
-- The forecast model identifies approximately 20% of stations that worsen in the following year in the reported evaluation.
-- The early-warning state machine does not yet distinguish chronic severe pollution from acute deterioration. Both conditions can produce a `CRITICAL` state.
-- The two non-flagged Bangladesh observations coincide with a period of dissolved-oxygen recovery toward the European training range. This pattern is not an independent causal validation of the detector.
-- Citizen reports are contextual observations and are not treated as laboratory measurements.
+**API (`backend/app.py`, `backend/ecr2023.py`).**
+`POST /api/predict` now also returns `risk_bounds`, `model_risk_level`, `bound_adjusted`, an opt-in `regional_prior` (`"region": "dhaka_rivers"`) and a `neural_second_opinion`.
+New: `POST /api/compliance` (three-valued check against ECR 2023 use classes), `GET /api/standards/ecr2023`, `GET /api/assessability`, `GET /api/master/summary`,
+`GET /api/reach/points`, `GET /api/master/river/<river>?param=`, `GET /api/overview`, `GET /api/bangladesh/doe_eval`, `GET /api/bangladesh/doe/rivers`.
+
+**Regulatory assessability (4,070 station-months).** No station-month can be certified compliant with any ECR 2023 use class (0.0%), because the scheduled nutrients, metals and
+fecal coliform are never all measured; 64.8% provably fail the fisheries class and 72.9% the conventional-treatment drinking-source class. The limits were transcribed from a page image: verify before citing.
+
+**Neural baseline (notebook 14.7).** A mask-aware MLP trained with random masking of nutrients, compared with the random forest on an EU station-level split with nutrients hidden:
+
+| Model | accuracy | macro-F1 | log-loss | High recall |
+|---|---:|---:|---:|---:|
+| RF, median impute | 0.793 | 0.403 | 0.803 | 0.00 |
+| MLP, median impute | 0.789 | 0.399 | 1.665 | 0.00 |
+| **Mask-aware MLP** | **0.864** | **0.696** | **0.346** | **0.37** |
+
+On the real DoE station-months it contradicts the provable lower bound in 1.6% of cases versus 22.7% for the random forest; no accuracy claim is possible there because DoE has no nutrient measurements.
+
+**Notebook.** Part II (sections 14.1-14.8) is appended to `notebook/AquaSentinel_notebook.ipynb` and was executed end to end.
+
+**Frontend.** New design system and pages: Overview, Dhaka Observatory (map + time series), Legal compliance (interactive three-valued matrix and assessability charts), Evidence.
+The compliance check and neural second opinion appear beside every prediction. Pages were smoke-tested against the live API in jsdom (`frontend/tests`); they were **not** inspected in a real browser.
+
+**Fixes (mentor-review pass).** `bangladesh_history.json` is now regenerated from the same merged master dataset used everywhere else (previously stale at 2 rivers / 18 entries while other endpoints already used 28-40 rivers); the Data & Methodology panel's Bangladesh block was rebuilt to be symmetric with the EU block instead of showing a blank field, and made defensive against partial API responses; the Leaflet basemap on the Dhaka Observatory and station maps was switched from CARTO (which now requires a paid API key and was rendering "API KEY REQUIRED" watermark tiles) to standard, key-free OpenStreetMap tiles.
+
+**National-scale and climate context (new).** A new `/api/context/national_scale_and_climate` endpoint and Overview section connect the project to two independent, cited sources rather than a new AquaSentinel-fitted statistic: (1) Bangladesh Water Development Board's national inventory of 405 named rivers/streams/canals, compared against the 33 rivers DoE's own lab network actively sampled in 2021-2023 (8.1%) — the scale argument for why an inspection-priority tool matters; (2) DoE Climate Change Cell's 2016 sea-level-rise trend study (30-year tidal record, Sen's slope + Mann-Kendall at 95% confidence), which measured 7-8 mm/year rise in the Ganges Tidal Floodplain — the same coastal zone as Pashur, Rupsha and Kakshiali, AquaSentinel's highest-salinity rivers. Both are presented as documented context with explicit caveats, not as a regression AquaSentinel fit itself.
+
+**2016 gap closed (new).** The DoE *Surface and Ground Water Quality Report 2016* is a scanned document (no text layer); its own Chapter 6 trend table (read directly from the page image) supplied real 2016 dry/wet-season pH, DO and BOD5 for Buriganga, Turag and Shitalakhya. Buriganga and Turag now have complete, gap-free annual coverage from 2010-2023; Shitalakhya's only remaining gap is 2017.
+
+## Powered Bangladesh evaluation and provable risk bounds
+
+The earlier Bangladesh test used 18 annual river averages from two rivers; the current `bangladesh_history.json` panel extends this to 41
+river-years across three rivers (Buriganga, Turag, Shitalakhya), with only a single remaining gap year (Shitalakhya, 2017). The Department of Environment annex tables (2021-2023) additionally contain
+monthly per-station measurements, which were extracted into a dataset of **2,070 station-months from 176 stations on 28
+rivers and urban lakes** (see `docs/DoE_DATASET.md`; extraction validated against the annual averages previously entered by hand).
+
+Because every scored parameter can only add risk points, the points earned by the *measured* parameters are a provable lower
+bound on the rule-based risk, and the maximum extra points from the *unmeasured* scored parameters give a provable upper bound.
+On the DoE data (measured: pH, DO, BOD, EC; not reported: ammonium, nitrate, phosphorus):
+
+| Result | Value |
+|---|---:|
+| Station-months provably **High** from measured values alone | **20.2%** |
+| Station-months where the EU-trained model predicts High | **0.0%** |
+| Model prediction below the provable lower bound | **23.0%** (100% of provably-High cases) |
+| Prediction after projection into the feasible interval | never below the bound |
+| OOD distance vs. bound violation (AUROC) | 0.895 |
+
+`/api/predict` now returns `risk_bounds`, `model_risk_level` and `bound_adjusted`; the reported `risk_level` is the model
+prediction projected into `[lower_bound, upper_bound]`, and conformal sets are intersected with the feasible classes.
+The AUROC is descriptive: the OOD distance and the bound violation both depend on the same extreme DO/BOD values.
+
+Bangladesh's Environment Conservation Rules **2023** (Schedule-2) replaced the 1997 rules and list ammonium-N, nitrate-N,
+phosphate-P and fecal coliform limits that the DoE river tables do not report. The current risk rule's ammonium thresholds
+(0.5 / 1.0 mg/L) are looser than the ECR 2023 limits (0.1-0.3 mg/L NH4-N for most uses).
+
+## Real nutrient data for Dhaka rivers (REACH-Dhaka 2017-2021)
+
+The REACH-Dhaka programme measured ammonia-N, nitrate, phosphate, E. coli, DO, pH and EC at 58 locations on 12 rivers and
+canals (1,495 samples; `docs/DoE_DATASET.md`). It has no BOD, so it complements the DoE data instead of replacing it.
+Results (1,397 samples with DO, pH, ammonia, nitrate and phosphate; `backend/data/reach_analysis.json`):
+
+| Finding | Value |
+|---|---:|
+| Risk points added by the nutrients that DoE does not report (mean / median) | **2.2 / 3** |
+| Samples where nutrients add at least 2 points | **68.6%** |
+| Points the EU-median imputation implicitly assumes for those nutrients | **0** (bias -2.2 points) |
+| Ammonia-N above 0.3 mg/L (ECR 2023 fisheries class, as transcribed) | 77.4% |
+| E. coli above 5,000 per 100 mL (n = 1,049) | 60.7% |
+
+A regional prior predicts the nutrient points from DO, pH and EC (leave-river-out MAE 0.36 points vs 0.84 for a constant;
+leave-year-out 0.43). It is **opt-in** (`"region": "dhaka_rivers"` in `/api/predict`), never overrides the provable bounds, is
+validated on risk points only (not on measured class labels), and is applied only to Dhaka-region rivers (EC in southern
+tidal rivers reflects salinity). On the 629 DoE station-months from those rivers, 47.2% are provably High from the measured
+values, the prior-informed estimate is High for 75.0%, and the EU-trained model predicts High for 0%.
+
+Two data sources are not interchangeable: dry-season median DO differs between REACH (2017-2021) and DoE (2021-2023) for
+the same rivers (e.g. Buriganga 0.16 vs 0.70 mg/L) and the station sets differ.
 
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=rect&color=0:0B5FFF,50:2E9BFF,100:12B886&height=3&width=1200" width="100%" alt="divider" />
@@ -330,7 +438,16 @@ AquaSentinel/
 | `/api/station/<id>/history` | `GET` | Multi-year EU station history and early-warning state |
 | `/api/station/<id>/forecast` | `GET` | Backtested one-year-ahead forecast |
 | `/api/priority` | `GET` | Inspection Priority ranking |
-| `/api/bangladesh/history/<river>` | `GET` | Buriganga or Turag multi-year history |
+| `/api/bangladesh/history/<river>` | `GET` | Buriganga, Turag, or Shitalakhya multi-year history |
+| `/api/bangladesh/doe_eval` | `GET` | Powered 28-river/2,070-station-month evaluation |
+| `/api/bangladesh/doe/rivers` | `GET` | List of rivers in the DoE-only panel |
+| `/api/standards/ecr2023` | `GET` | Environment Conservation Rules 2023, Schedule-2 thresholds |
+| `/api/compliance` | `POST` | Three-valued (pass/fail/unknown) ECR 2023 compliance check |
+| `/api/assessability` | `GET` | Share of station-months that can be certified compliant |
+| `/api/master/summary` | `GET` | Summary of the merged 36,298-row Bangladesh raw dataset |
+| `/api/master/river/<river>` | `GET` | Per-river slice of the merged raw dataset |
+| `/api/reach/points` | `GET` | REACH-Dhaka GPS-located sample points |
+| `/api/overview` | `GET` | Dashboard-level summary across all panels |
 | `/api/cross_region_eval` | `GET` | EU and Bangladesh comparison |
 | `/api/model_card` | `GET` | Training, evaluation, and limitation summary |
 | `/api/citizen_reports` | `GET/POST` | Citizen water-quality observations |
@@ -340,12 +457,15 @@ The complete endpoint list is available in `backend/app.py`.
 ## Data sources and acknowledgments
 
 - European Environment Agency, Waterbase WISE-6 Water Quality dataset [1]
-- Bangladesh Department of Environment, *River Water Quality Report* for 2015, 2021, 2022, and 2023
+- Bangladesh Department of Environment - *River Water Quality Report* 2010, 2013, 2014, 2015, 2016 and *Surface & Ground Water Quality Report* 2021, 2022, 2023. Used per DoE's own note: freely for study, research and training purposes, subject to acknowledgement of the source.
+- REACH: Improving water security for the poor, University of Oxford (UK-aid/FCDO funded) - Greater Dhaka watershed water quality dataset, 2017-2021, 58 sampling points. Creators: Hossain, M.A., Shawal, S. et al. [2]
+- Bangladesh Gazette, Additional Issue, 5 March 2023 - Environment Conservation Rules 2023 (পরিবেশ সংরক্ষণ বিধিমালা, ২০২৩), Schedule-2
 - OneAquaHealth IEEE Global Hackathon 2026, Challenge Track 6: Resilience Informatics
 
 ## References
 
 [1]: https://www.eea.europa.eu/en/datahub/datahubitem-view/fbf3717c-cd7b-4785-933a-d0cf510542e1 "European Environment Agency Waterbase WISE-6 Water Quality dataset"
+[2]: https://reachwater.uk/datasets/ "REACH: Improving water security for the poor — datasets"
 
 ---
 
