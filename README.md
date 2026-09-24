@@ -26,9 +26,7 @@
 
 ## Overview
 <div align="center">
-
-<img width="1152" height="648" alt="Seeing Water Quality Data" src="https://github.com/user-attachments/assets/c1fcc76b-d1eb-4056-a5b4-31920af079ec" />
-
+<img width="1152" height="648" alt="Seeing Water Quality Data" src="https://github.com/user-attachments/assets/322286bf-4209-4253-96b6-4972d69cc221" />
 <!-- <img width="1280" height="720" alt="AquaSentinel_Animated" src="https://github.com/user-attachments/assets/38e960fe-e8ce-4463-92fc-2f1d01eb5ca3" /> -->
 <details>
 <summary><strong>Explore the AquaSentinel Interface</strong></summary>
