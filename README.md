@@ -19,9 +19,33 @@
 **A practical water-quality intelligence system for detecting change, explaining risk, forecasting the next year, and prioritizing inspection.**
 
 </div>
+<br/>
+<p align="center">
+  <a href="#main-contributions"><img src="https://img.shields.io/badge/Contributions-006D77?style=for-the-badge&labelColor=00545C"></a>
+  <a href="#application-overview"><img src="https://img.shields.io/badge/Overview-008C99?style=for-the-badge&labelColor=006B75"></a>
+  <a href="#one-health-connection"><img src="https://img.shields.io/badge/One%20Health-0A7C86?style=for-the-badge&labelColor=08646C"></a>
+  <a href="#architecture"><img src="https://img.shields.io/badge/Architecture-158F9C?style=for-the-badge&labelColor=11727C"></a>
+  <a href="#data-and-methodology"><img src="https://img.shields.io/badge/Methodology-219EBC?style=for-the-badge&labelColor=197F98"></a>
+  <a href="#evaluation-at-a-glance"><img src="https://img.shields.io/badge/Evaluation-3AAFB9?style=for-the-badge&labelColor=2B8D96"></a>
+  <a href="#limitations"><img src="https://img.shields.io/badge/Limitations-4F858A?style=for-the-badge&labelColor=416E72"></a>
+  <a href="#data-sources-and-acknowledgments"><img src="https://img.shields.io/badge/Sources-397D8A?style=for-the-badge&labelColor=326875"></a>
+</p>
 
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=rect&color=0:0B5FFF,50:2E9BFF,100:12B886&height=3&width=1200" width="100%" alt="divider" />
+</p>
+<p align="center">
+  <a href="#evaluation-at-a-glance"><img src="https://img.shields.io/badge/Accuracy-99.4%25-0B5FFF?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Accuracy"></a>
+  <a href="#evaluation-at-a-glance"><img src="https://img.shields.io/badge/Conformal_Coverage-90.4%25-12B886?style=for-the-badge&logo=shield&logoColor=white" alt="Conformal Coverage"></a>
+  <a href="#evaluation-at-a-glance"><img src="https://img.shields.io/badge/AUROC-0.895-8B5CF6?style=for-the-badge&logo=chartdotjs&logoColor=white" alt="AUROC"></a>
+  <a href="#evaluation-at-a-glance"><img src="https://img.shields.io/badge/Forecast-85.9%25-F59E0B?style=for-the-badge&logo=trendmicro&logoColor=white" alt="Forecast"></a>
+</p>
+
+<p align="center">
+  <a href="#evaluation-at-a-glance"><img src="https://img.shields.io/badge/41_River--Years-3_Rivers-EF4444?style=for-the-badge&logo=googlemaps&logoColor=white" alt="River Years"></a>
+  <a href="#evaluation-at-a-glance"><img src="https://img.shields.io/badge/2%2C070-Station--Months-06B6D4?style=for-the-badge&logo=databricks&logoColor=white" alt="Station Months"></a>
+  <a href="#evaluation-at-a-glance"><img src="https://img.shields.io/badge/28-Rivers-10B981?style=for-the-badge&logo=googleearth&logoColor=white" alt="Rivers"></a>
+  <a href="#evaluation-at-a-glance"><img src="https://img.shields.io/badge/High_Stations-20.2%25_vs_0%25-DC2626?style=for-the-badge&logo=target&logoColor=white" alt="High Stations"></a>
 </p>
 
 ## Overview
@@ -75,16 +99,7 @@ AquaSentinel brings these questions into one workflow:
 | Is the input unlike the training data? | k-nearest-neighbour OOD detector |
 | How should uncertainty change with missing data? | Missingness-matched conformal prediction |
 
-<p align="center">
-  <a href="#main-contributions"><img src="https://img.shields.io/badge/Contributions-006D77?style=for-the-badge&labelColor=00545C"></a>
-  <a href="#application-overview"><img src="https://img.shields.io/badge/Overview-008C99?style=for-the-badge&labelColor=006B75"></a>
-  <a href="#one-health-connection"><img src="https://img.shields.io/badge/One%20Health-0A7C86?style=for-the-badge&labelColor=08646C"></a>
-  <a href="#architecture"><img src="https://img.shields.io/badge/Architecture-158F9C?style=for-the-badge&labelColor=11727C"></a>
-  <a href="#data-and-methodology"><img src="https://img.shields.io/badge/Methodology-219EBC?style=for-the-badge&labelColor=197F98"></a>
-  <a href="#evaluation-at-a-glance"><img src="https://img.shields.io/badge/Evaluation-3AAFB9?style=for-the-badge&labelColor=2B8D96"></a>
-  <a href="#limitations"><img src="https://img.shields.io/badge/Limitations-4F858A?style=for-the-badge&labelColor=416E72"></a>
-  <a href="#data-sources-and-acknowledgments"><img src="https://img.shields.io/badge/Sources-397D8A?style=for-the-badge&labelColor=326875"></a>
-</p>
+
 
 ## Challenge track
 
