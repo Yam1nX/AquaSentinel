@@ -12,8 +12,6 @@
 [![IEEE Global Hackathon](https://img.shields.io/badge/IEEE%20Global%20Hackathon-2026-1D4ED8?style=for-the-badge&labelColor=172033)](#)
 [![Track 6](https://img.shields.io/badge/Track%206-Resilience%20Informatics-0F9D8A?style=for-the-badge&labelColor=172033)](#)
 [![AI/ML](https://img.shields.io/badge/AI%2FML-Model%20Pipeline-8B5CF6?style=for-the-badge&labelColor=172033)](#)
-[![React + Vite + Flask](https://img.shields.io/badge/React%20%2B%20Vite%20%2B%20Flask-FF8A3D?style=for-the-badge&logo=flask&logoColor=white&labelColor=172033)](#)
-
 <br/>
 
 **A practical water-quality intelligence system for detecting change, explaining risk, forecasting the next year, and prioritizing inspection.**
@@ -34,8 +32,7 @@
 
 <p align="center">
   <a href="#evaluation-at-a-glance"><img src="https://img.shields.io/badge/41_River--Years-3_Rivers-EF4444?style=for-the-badge&logo=googlemaps&logoColor=white" alt="River Years"></a>
-  <a href="#evaluation-at-a-glance"><img src="https://img.shields.io/badge/2%2C070-Station--Months-06B6D4?style=for-the-badge&logo=databricks&logoColor=white" alt="Station Months"></a>
-  <a href="#evaluation-at-a-glance"><img src="https://img.shields.io/badge/28-Rivers-10B981?style=for-the-badge&logo=googleearth&logoColor=white" alt="Rivers"></a>
+  <a href="#evaluation-at-a-glance"><img src="https://img.shields.io/badge/2%2C070_Station--Months-28_Rivers-06B6D4?style=for-the-badge&logo=databricks&logoColor=white" alt="Dataset Scale"></a>
   <a href="#evaluation-at-a-glance"><img src="https://img.shields.io/badge/High_Stations-20.2%25_vs_0%25-DC2626?style=for-the-badge&logo=target&logoColor=white" alt="High Stations"></a>
 </p>
 
