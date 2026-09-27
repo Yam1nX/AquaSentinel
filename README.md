@@ -10,10 +10,10 @@
 <img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=20&duration=2800&pause=900&color=2E9BFF&center=true&vCenter=true&width=680&lines=Predictive+Early-Warning+and+Decision+Support;Detecting+Change+%C2%B7+Explaining+Risk+%C2%B7+Forecasting+Ahead;Prioritizing+Inspection+for+Urban+Stream+Health" alt="Typing SVG" />
 
 
-<a href="#">![IEEE Global Hackathon](https://img.shields.io/badge/IEEE%20Global%20Hackathon-2026-1D4ED8?style=for-the-badge&labelColor=172033)</a>
-<a href="#">![Track 6](https://img.shields.io/badge/Track%206-Resilience%20Informatics-0F9D8A?style=for-the-badge&labelColor=172033)</a>
-<a href="#">![AI/ML](https://img.shields.io/badge/AI%2FML-Model%20Pipeline-8B5CF6?style=for-the-badge&labelColor=172033)</a>
-<a href="#">![Stack](https://img.shields.io/badge/React%20%2B%20Vite%20%2B%20Flask-FF8A3D?style=for-the-badge&logo=flask&logoColor=white&labelColor=172033)</a>
+[![IEEE Global Hackathon](https://img.shields.io/badge/IEEE%20Global%20Hackathon-2026-1D4ED8?style=flat-square&labelColor=172033&logo=ieee&logoColor=white)](#)
+[![Track 6](https://img.shields.io/badge/Track%206-Resilience%20Informatics-0F9D8A?style=flat-square&labelColor=172033)](#)
+[![AI/ML](https://img.shields.io/badge/AI%2FML-Model%20Pipeline-8B5CF6?style=flat-square&labelColor=172033)](#)
+[![Stack](https://img.shields.io/badge/React%20%2B%20Vite%20%2B%20Flask-FF8A3D?style=flat-square&logo=flask&logoColor=white&labelColor=172033)](#)
 
 
 **A practical water-quality intelligence system for detecting change, explaining risk, forecasting the next year, and prioritizing inspection.**
