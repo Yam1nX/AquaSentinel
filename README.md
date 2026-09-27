@@ -9,21 +9,23 @@
 
 <img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=20&duration=2800&pause=900&color=2E9BFF&center=true&vCenter=true&width=680&lines=Predictive+Early-Warning+and+Decision+Support;Detecting+Change+%C2%B7+Explaining+Risk+%C2%B7+Forecasting+Ahead;Prioritizing+Inspection+for+Urban+Stream+Health" alt="Typing SVG" />
 
-[![IEEE Global Hackathon](https://img.shields.io/badge/IEEE%20Global%20Hackathon-2026-1D4ED8?style=flat-square&labelColor=172033&logo=ieee&logoColor=white)](#)
-[![Track 6](https://img.shields.io/badge/Track%206-Resilience%20Informatics-0F9D8A?style=flat-square&labelColor=172033)](#)
-[![AI/ML](https://img.shields.io/badge/AI%2FML-Model%20Pipeline-8B5CF6?style=flat-square&labelColor=172033)](#)
-[![Stack](https://img.shields.io/badge/React%20%2B%20Vite%20%2B%20Flask-FF8A3D?style=flat-square&logo=flask&logoColor=white&labelColor=172033)](#)
-<br/>
+
+<a href="#">![IEEE Global Hackathon](https://img.shields.io/badge/IEEE%20Global%20Hackathon-2026-1D4ED8?style=for-the-badge&labelColor=172033)</a>
+<a href="#">![Track 6](https://img.shields.io/badge/Track%206-Resilience%20Informatics-0F9D8A?style=for-the-badge&labelColor=172033)</a>
+<a href="#">![AI/ML](https://img.shields.io/badge/AI%2FML-Model%20Pipeline-8B5CF6?style=for-the-badge&labelColor=172033)</a>
+<a href="#">![Stack](https://img.shields.io/badge/React%20%2B%20Vite%20%2B%20Flask-FF8A3D?style=for-the-badge&logo=flask&logoColor=white&labelColor=172033)</a>
+
 
 **A practical water-quality intelligence system for detecting change, explaining risk, forecasting the next year, and prioritizing inspection.**
 
 </div>
-<br/>
+
 
 
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=rect&color=0:0B5FFF,50:2E9BFF,100:12B886&height=3&width=1200" width="100%" alt="divider" />
 </p>
+<br/>
 <p align="center">
   <a href="#evaluation-at-a-glance"><img src="https://img.shields.io/badge/Accuracy-99.4%25-0B5FFF?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Accuracy"></a>
   <a href="#evaluation-at-a-glance"><img src="https://img.shields.io/badge/Conformal_Coverage-90.4%25-12B886?style=for-the-badge&logo=shield&logoColor=white" alt="Conformal Coverage"></a>
