@@ -60,9 +60,9 @@
 |:---:|:---:|
 | <img width="1244" height="806" alt="Screenshot 2026-09-22 012737" src="https://github.com/user-attachments/assets/2df2ef5c-df74-4754-9974-742d66651e1b" /> | <img width="1912" height="918" alt="Bangladesh Demo" src="https://github.com/user-attachments/assets/3df81cae-bc3e-4bd8-af48-fe43db27def8" /> |
 
-| Legal Compilance | Data & Methodology |
+| Legal Compilance | Report Analysis |
 |:---:|:---:|
-| <img width="1045" height="822" alt="Legal Compilance" src="https://github.com/user-attachments/assets/47def31f-dd45-4ac3-a771-20243e5fad8c" /> | <img width="874" height="942" alt="5" src="https://github.com/user-attachments/assets/c63f4219-080e-4343-938e-0beaa769ac28" /> |
+| <img width="1319" height="843" alt="Screenshot 2026-10-05 005530" src="https://github.com/user-attachments/assets/6ffd1b3d-aa9e-4a6e-9e4b-02a0931632a4" /> |
 </div>
 
 </details>
