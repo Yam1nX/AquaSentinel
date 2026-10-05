@@ -63,6 +63,10 @@
 | Legal Compilance | Report Analysis |
 |:---:|:---:|
 | <img width="946" height="853" alt="Screenshot 2026-10-05 005151" src="https://github.com/user-attachments/assets/dc086605-ceda-465b-b8ad-c9fc620ce37d" /> | <img width="1319" height="843" alt="Screenshot 2026-10-05 005530" src="https://github.com/user-attachments/assets/6ffd1b3d-aa9e-4a6e-9e4b-02a0931632a4" /> |
+
+| Conformal Study | Bangladesh Check |
+|:---:|:---:|
+| <img width="936" height="855" alt="Screenshot 2026-10-05 005233" src="https://github.com/user-attachments/assets/54987b6e-a247-4d38-afbc-211b1b094549" /> | <img width="709" height="855" alt="Screenshot_5-10-2026_05418_localhost" src="https://github.com/user-attachments/assets/f6973012-a0cc-4119-977b-c06ffb8b8d2d" /> |
 </div>
 
 </details>
