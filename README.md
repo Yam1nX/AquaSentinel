@@ -62,7 +62,7 @@
 
 | Legal Compilance | Report Analysis |
 |:---:|:---:|
-| <img width="1319" height="843" alt="Screenshot 2026-10-05 005530" src="https://github.com/user-attachments/assets/6ffd1b3d-aa9e-4a6e-9e4b-02a0931632a4" /> |
+| <img width="946" height="853" alt="Screenshot 2026-10-05 005151" src="https://github.com/user-attachments/assets/dc086605-ceda-465b-b8ad-c9fc620ce37d" /> | <img width="1319" height="843" alt="Screenshot 2026-10-05 005530" src="https://github.com/user-attachments/assets/6ffd1b3d-aa9e-4a6e-9e4b-02a0931632a4" /> |
 </div>
 
 </details>
